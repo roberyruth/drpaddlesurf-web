@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Alquiler de Paddle Surf | DR Paddle Surf Torremolinos</title>
+<meta name="description" content="Alquiler de Paddle Surf en Torremolinos. Tablas premium por horas, King Paddle y experiencias en el mar. Reserva online y disfruta del SUP.">
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+font-family:Inter,sans-serif;
+background:#ffffff;
+color:#0a1a2a;
+overflow-x:hidden;
+}
+
+/* NAV */
+nav{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+padding:18px 40px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+backdrop-filter:blur(12px);
+background:rgba(255,255,255,0.55);
+z-index:999;
+}
+
+nav a{
+text-decoration:none;
+color:#0a1a2a;
+font-weight:600;
+margin-left:25px;
+}
+
+/* HERO */
+.hero{
+height:60vh;
+background:url('drpaddlesurf5.jpg');
+background-size:cover;
+background-position:center;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+color:white;
+text-shadow:0 4px 20px rgba(0,0,0,0.6);
+padding:20px;
+}
+
+.hero h1{
+font-size:clamp(42px,7vw,80px);
+font-weight:800;
+}
+
+/* CONTENT */
+.section{
+max-width:1200px;
+margin:auto;
+padding:80px 20px;
+}
+
+h2{
+font-size:clamp(28px,5vw,42px);
+margin-bottom:20px;
+font-weight:800;
+}
+
+p{
+font-size:18px;
+line-height:1.6;
+margin-bottom:20px;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:30px;
+margin-top:40px;
+}
+
+.card{
+background:#f4f4f4;
+padding:30px;
+border-radius:18px;
+text-align:center;
+transition:.3s;
+}
+
+.card:hover{
+transform:translateY(-6px);
+box-shadow:0 10px 25px rgba(0,0,0,.1);
+}
+
+.card h3{
+font-size:24px;
+margin-bottom:10px;
+}
+
+.card p{
+margin-bottom:10px;
+}
+
+.price{
+font-size:26px;
+font-weight:800;
+margin:10px 0;
+color:#009dff;
+}
+
+/* BUTTON */
+.btn{
+padding:15px 28px;
+border-radius:40px;
+font-weight:700;
+text-decoration:none;
+display:inline-block;
+background:#009dff;
+color:white;
+margin-top:20px;
+}
+
+/* MOBILE */
+@media(max-width:900px){
+.hero{height:50vh}
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAV -->
+<nav>
+<div style="font-weight:800;font-size:22px;">DR PADDLE SURF</div>
+<div>
+<a href="index.html">Inicio</a>
+<a href="cursos.html">Cursos</a>
+<a href="campamentos.html">Campamentos</a>
+<a href="grupos.html">Grupos</a>
+</div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+<h1>Alquiler de Paddle Surf</h1>
+</section>
+
+<section class="section">
+
+<h2>Disfruta del mar a tu ritmo</h2>
+
+<p>
+Si te gusta disfrutar de un día de playa mientras experimentas nuevas sensaciones, esta es tu oportunidad.  
+Alquila nuestro material y siéntete libre sobre el agua.
+</p>
+
+<div class="grid">
+
+<!-- 1 HORA -->
+<div class="card">
+<h3>1 hora</h3>
+<p>Perfecto para una primera toma de contacto o un paseo rápido.</p>
+<div class="price">15 €</div>
+<a class="btn" href="#">Reservar 1 hora</a>
+</div>
+
+<!-- 2 HORAS -->
+<div class="card">
+<h3>2 horas</h3>
+<p>Tiempo ideal para disfrutar sin prisas y explorar más.</p>
+<div class="price">25 €</div>
+<a class="btn" href="#">Reservar 2 horas</a>
+</div>
+
+<!-- 3 HORAS -->
+<div class="card">
+<h3>3 horas</h3>
+<p>Para los que quieren vivir la experiencia completa.</p>
+<div class="price">35 €</div>
+<a class="btn" href="#">Reservar 3 horas</a>
+</div>
+
+<!-- KING PADDLE -->
+<div class="card">
+<h3>King Paddle</h3>
+<p>Tabla gigante para grupos. Diversión asegurada.</p>
+<div class="price">15 € / hora por persona</div>
+<a class="btn" href="#">Reservar King Paddle</a>
+</div>
+
+</div>
+
+</section>
+
+</body>
+</html>
