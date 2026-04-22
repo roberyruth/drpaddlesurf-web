@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Grupos y Eventos | DR Paddle Surf Torremolinos</title>
+<meta name="description" content="Actividades para grupos, colegios, empresas, team building y despedidas en Torremolinos. Paddle surf, kayak y experiencias en el mar. Reserva tu actividad.">
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+font-family:Inter,sans-serif;
+background:#ffffff;
+color:#0a1a2a;
+overflow-x:hidden;
+}
+
+/* NAV */
+nav{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+padding:18px 40px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+backdrop-filter:blur(12px);
+background:rgba(255,255,255,0.55);
+z-index:999;
+}
+
+nav a{
+text-decoration:none;
+color:#0a1a2a;
+font-weight:600;
+margin-left:25px;
+}
+
+/* HERO */
+.hero{
+height:60vh;
+background:url('drpaddlesurf8.jpg');
+background-size:cover;
+background-position:center;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+color:white;
+text-shadow:0 4px 20px rgba(0,0,0,0.6);
+padding:20px;
+}
+
+.hero h1{
+font-size:clamp(42px,7vw,80px);
+font-weight:800;
+}
+
+/* CONTENT */
+.section{
+max-width:1200px;
+margin:auto;
+padding:80px 20px;
+}
+
+h2{
+font-size:clamp(28px,5vw,42px);
+margin-bottom:20px;
+font-weight:800;
+}
+
+p{
+font-size:18px;
+line-height:1.6;
+margin-bottom:20px;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:30px;
+margin-top:40px;
+}
+
+.card{
+background:#f4f4f4;
+padding:30px;
+border-radius:18px;
+text-align:center;
+transition:.3s;
+}
+
+.card:hover{
+transform:translateY(-6px);
+box-shadow:0 10px 25px rgba(0,0,0,.1);
+}
+
+.card h3{
+font-size:24px;
+margin-bottom:10px;
+}
+
+.card p{
+margin-bottom:10px;
+}
+
+/* BUTTON */
+.btn{
+padding:15px 28px;
+border-radius:40px;
+font-weight:700;
+text-decoration:none;
+display:inline-block;
+background:#009dff;
+color:white;
+margin-top:20px;
+}
+
+/* MOBILE */
+@media(max-width:900px){
+.hero{height:50vh}
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAV -->
+<nav>
+<div style="font-weight:800;font-size:22px;">DR PADDLE SURF</div>
+<div>
+<a href="index.html">Inicio</a>
+<a href="cursos.html">Cursos</a>
+<a href="alquiler.html">Alquiler</a>
+<a href="campamentos.html">Campamentos</a>
+</div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+<h1>Grupos y Eventos</h1>
+</section>
+
+<section class="section">
+
+<h2>Actividades para grupos, colegios, empresas y despedidas</h2>
+
+<p>
+Organizamos actividades para grupos de todos los tamaños: colegios, empresas, team building, despedidas, familias y amigos.  
+Una experiencia diferente, divertida y perfecta para fomentar el trabajo en equipo, la comunicación y la conexión con la naturaleza.
+</p>
+
+<p>
+Todas las actividades se realizan con monitores cualificados y material de primera calidad, garantizando seguridad y diversión.
+</p>
+
+<div class="grid">
+
+<div class="card">
+<h3>Colegios</h3>
+<p>Actividades educativas y deportivas para grupos escolares. Paddle surf, kayak y juegos en la playa.</p>
+</div>
+
+<div class="card">
+<h3>Team Building</h3>
+<p>Perfecto para empresas que buscan mejorar la cohesión del equipo en un entorno natural.</p>
+</div>
+
+<div class="card">
+<h3>Despedidas</h3>
+<p>Una actividad diferente, divertida y perfecta para grupos grandes.</p>
+</div>
+
+<div class="card">
+<h3>Familias y amigos</h3>
+<p>Vive una experiencia única en el mar con tus seres queridos.</p>
+</div>
+
+</div>
+
+<h2 style="margin-top:60px;">Duración y precios</h2>
+<p>
+Las actividades suelen tener una duración aproximada de <strong>3 horas</strong>.  
+El precio puede variar según el tamaño del grupo y el tipo de actividad.
+</p>
+
+<p>
+Para grupos grandes, recomendamos reservar con antelación para garantizar disponibilidad.
+</p>
+
+<a class="btn" href="#">Solicitar reserva</a>
+
+</section>
+
+</body>
+</html>
