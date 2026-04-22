@@ -5,8 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>DR Paddle Surf | Paddle Surf en Torremolinos</title>
+<meta name="description" content="Paddle Surf en Torremolinos. Cursos, alquiler, campamentos de verano y actividades para grupos. Reserva online y disfruta del mar con DR Paddle Surf.">
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
@@ -17,42 +18,70 @@ color:#0a1a2a;
 overflow-x:hidden;
 }
 
-/* HERO */
-.hero{
-height:100vh;
-background:
-linear-gradient(rgba(0,0,0,.35),rgba(0,0,0,.45)),
-url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1600&q=80');
-background-size:cover;
-background-position:center;
+/* NAVBAR */
+nav{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+padding:18px 40px;
 display:flex;
+justify-content:space-between;
 align-items:center;
-justify-content:center;
-text-align:center;
-padding:20px;
-color:white;
+backdrop-filter:blur(12px);
+background:rgba(255,255,255,0.55);
+z-index:999;
 }
 
-.hero h1{
+nav a{
+text-decoration:none;
+color:#0a1a2a;
+font-weight:600;
+margin-left:25px;
+}
+
+/* HERO SLIDESHOW */
+.hero{
+position:relative;
+height:100vh;
+overflow:hidden;
+}
+
+.slide{
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background-size:cover;
+background-position:center;
+opacity:0;
+transition:opacity 1.5s ease-in-out;
+}
+
+.slide.active{
+opacity:1;
+}
+
+.hero-content{
+position:absolute;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+text-align:center;
+color:white;
+text-shadow:0 4px 20px rgba(0,0,0,0.6);
+}
+
+.hero-content h1{
 font-size:clamp(42px,8vw,90px);
 font-weight:800;
 margin-bottom:10px;
-animation:fadeUp 1s ease forwards;
 }
 
-.hero p{
+.hero-content p{
 font-size:clamp(18px,3vw,26px);
-opacity:.95;
 margin-bottom:25px;
-animation:fadeUp 1.4s ease forwards;
-}
-
-.btns{
-display:flex;
-gap:15px;
-justify-content:center;
-flex-wrap:wrap;
-animation:fadeUp 1.8s ease forwards;
 }
 
 .btn{
@@ -61,6 +90,7 @@ border-radius:40px;
 font-weight:700;
 text-decoration:none;
 display:inline-block;
+margin:5px;
 }
 
 .primary{background:#009dff;color:white}
@@ -99,9 +129,10 @@ transform:translateY(-6px);
 box-shadow:0 10px 25px rgba(0,0,0,.1);
 }
 
-.card h3{
-font-size:22px;
-margin-bottom:10px;
+.card img{
+width:100%;
+border-radius:12px;
+margin-bottom:15px;
 }
 
 /* MAPA */
@@ -134,29 +165,45 @@ z-index:999;
 color:white;
 text-decoration:none;
 }
-
-/* ANIMACIONES */
-@keyframes fadeUp{
-0%{opacity:0;transform:translateY(20px)}
-100%{opacity:1;transform:translateY(0)}
-}
 </style>
 </head>
 
 <body>
 
-<!-- HERO -->
-<section class="hero">
+<!-- NAV -->
+<nav>
+<div style="font-weight:800;font-size:22px;">DR PADDLE SURF</div>
 <div>
-<h1>DR PADDLE SURF</h1>
-<p>Paddle Surf en Torremolinos. Alquiler, cursos, campamentos y grupos.</p>
+<a href="#actividades">Actividades</a>
+<a href="#reservas">Reservas</a>
+<a href="#contacto">Contacto</a>
+</div>
+</nav>
 
-<div class="btns">
+<!-- HERO SLIDESHOW -->
+<section class="hero">
+<div class="slide active" style="background-image:url('drpaddlesurf.jpg');"></div>
+<div class="slide" style="background-image:url('drpaddlesurf1.jpg');"></div>
+<div class="slide" style="background-image:url('drpaddlesurf7.jpg');"></div>
+<div class="slide" style="background-image:url('drpaddlesurf8.jpg');"></div>
+
+<div class="hero-content">
+<h1>DR PADDLE SURF</h1>
+<p>Paddle Surf en Torremolinos. Cursos, alquiler, campamentos y grupos.</p>
 <a class="btn primary" href="#actividades">Ver actividades</a>
 <a class="btn secondary" href="#reservas">Reservar ahora</a>
 </div>
-</div>
 </section>
+
+<script>
+let slides=document.querySelectorAll('.slide');
+let index=0;
+setInterval(()=>{
+slides[index].classList.remove('active');
+index=(index+1)%slides.length;
+slides[index].classList.add('active');
+},3000);
+</script>
 
 <!-- ACTIVIDADES -->
 <section class="section" id="actividades">
@@ -165,23 +212,27 @@ text-decoration:none;
 <div class="grid">
 
 <div class="card">
-<h3>🏄 Alquiler</h3>
-<p>Tablas premium por horas. Fácil, rápido y junto al mar.</p>
+<img src="drpaddlesurf1.jpg" alt="Cursos Paddle Surf Torremolinos">
+<h3>Cursos</h3>
+<p>Desde bautismo hasta iniciación al surf. Aprende de forma segura y divertida.</p>
 </div>
 
 <div class="card">
-<h3>🎓 Cursos</h3>
-<p>Iniciación, mejora técnica y clases privadas.</p>
+<img src="drpaddlesurf5.jpg" alt="Alquiler Paddle Surf Torremolinos">
+<h3>Alquiler</h3>
+<p>Tablas premium por horas. Disfruta del mar a tu ritmo.</p>
 </div>
 
 <div class="card">
-<h3>☀️ Campamentos</h3>
-<p>Campamentos de verano llenos de deporte y diversión.</p>
+<img src="drpaddlesurf7.jpg" alt="Campamentos Paddle Surf Málaga">
+<h3>Campamentos</h3>
+<p>De lunes a viernes, 10:00 a 14:00. Actividades, deporte y diversión.</p>
 </div>
 
 <div class="card">
-<h3>👥 Grupos y eventos</h3>
-<p>Team building, despedidas, colegios y actividades especiales.</p>
+<img src="drpaddlesurf8.jpg" alt="Grupos Paddle Surf Málaga">
+<h3>Grupos y eventos</h3>
+<p>Team building, colegios, despedidas y actividades especiales.</p>
 </div>
 
 </div>
@@ -200,7 +251,7 @@ Elige tu actividad, selecciona fecha y paga el 50% para asegurar tu plaza.
 </section>
 
 <!-- MAPA -->
-<section class="section">
+<section class="section" id="contacto">
 <h2>Dónde estamos</h2>
 <div class="map">
 <iframe 
@@ -222,3 +273,4 @@ DR Paddle Surf © Torremolinos, Málaga
 
 </body>
 </html>
+
