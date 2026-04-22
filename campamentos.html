@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Campamentos de Verano | DR Paddle Surf Torremolinos</title>
+<meta name="description" content="Campamentos de verano en Torremolinos. Paddle surf, kayak, juegos en la playa y actividades deportivas. De lunes a viernes, 10:00 a 14:00. Reserva tu plaza.">
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+font-family:Inter,sans-serif;
+background:#ffffff;
+color:#0a1a2a;
+overflow-x:hidden;
+}
+
+/* NAV */
+nav{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+padding:18px 40px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+backdrop-filter:blur(12px);
+background:rgba(255,255,255,0.55);
+z-index:999;
+}
+
+nav a{
+text-decoration:none;
+color:#0a1a2a;
+font-weight:600;
+margin-left:25px;
+}
+
+/* HERO */
+.hero{
+height:60vh;
+background:url('drpaddlesurf7.jpg');
+background-size:cover;
+background-position:center;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+color:white;
+text-shadow:0 4px 20px rgba(0,0,0,0.6);
+padding:20px;
+}
+
+.hero h1{
+font-size:clamp(42px,7vw,80px);
+font-weight:800;
+}
+
+/* CONTENT */
+.section{
+max-width:1200px;
+margin:auto;
+padding:80px 20px;
+}
+
+h2{
+font-size:clamp(28px,5vw,42px);
+margin-bottom:20px;
+font-weight:800;
+}
+
+p{
+font-size:18px;
+line-height:1.6;
+margin-bottom:20px;
+}
+
+.list{
+margin:20px 0;
+padding-left:20px;
+}
+
+.list li{
+margin-bottom:10px;
+font-size:18px;
+}
+
+/* CARD */
+.card{
+background:#f4f4f4;
+padding:30px;
+border-radius:18px;
+margin-top:40px;
+text-align:center;
+}
+
+.price{
+font-size:32px;
+font-weight:800;
+color:#009dff;
+margin:10px 0;
+}
+
+/* BUTTON */
+.btn{
+padding:15px 28px;
+border-radius:40px;
+font-weight:700;
+text-decoration:none;
+display:inline-block;
+background:#009dff;
+color:white;
+margin-top:20px;
+}
+
+/* MOBILE */
+@media(max-width:900px){
+.hero{height:50vh}
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAV -->
+<nav>
+<div style="font-weight:800;font-size:22px;">DR PADDLE SURF</div>
+<div>
+<a href="index.html">Inicio</a>
+<a href="cursos.html">Cursos</a>
+<a href="alquiler.html">Alquiler</a>
+<a href="grupos.html">Grupos</a>
+</div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+<h1>Campamentos de Verano</h1>
+</section>
+
+<section class="section">
+
+<h2>Una semana llena de deporte, mar y diversión</h2>
+
+<p>
+Nuestros campamentos de verano están diseñados para que los jóvenes disfruten del mar mientras aprenden paddle surf, kayak y actividades deportivas en un entorno seguro y divertido.
+</p>
+
+<p>
+Cada semana realizamos actividades variadas para que vivan una experiencia inolvidable, siempre acompañados por monitores cualificados.
+</p>
+
+<h2>Horarios y duración</h2>
+<p>
+De <strong>lunes a viernes</strong>, en horario de <strong>10:00 a 14:00</strong>.
+</p>
+
+<div class="card">
+<h2>Precio por semana</h2>
+<div class="price">115 €</div>
+<p>Incluye todo el material, seguro y monitores.</p>
+<a class="btn" href="#">Reservar Campamento</a>
+</div>
+
+<h2>Actividades incluidas</h2>
+<ul class="list">
+<li>Paddle Surf</li>
+<li>Kayak</li>
+<li>Juegos en la playa</li>
+<li>Actividades deportivas</li>
+<li>Trabajo en equipo</li>
+<li>Conocimiento del medio marino</li>
+</ul>
+
+</section>
+
+</body>
+</html>
