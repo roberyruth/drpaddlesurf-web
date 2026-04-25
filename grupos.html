@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Grupos y Eventos | DR Paddle Surf Torremolinos</title>
-<meta name="description" content="Actividades para grupos, colegios, empresas, team building y despedidas en Torremolinos. Paddle surf, kayak y experiencias en el mar. Reserva tu actividad.">
+<title data-i18n="grupos_meta_titulo">Grupos y Eventos | DR Paddle Surf Torremolinos</title>
+<meta name="description" content="Actividades para grupos, colegios, empresas, team building y despedidas en Torremolinos. Paddle surf, kayak y experiencias en el mar. Reserva tu actividad." data-i18n="grupos_meta_desc">
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
 
@@ -136,15 +136,15 @@ margin-top:20px;
         <img src="logotipo.png" alt="DR Paddle Surf" style="height:55px; object-fit:contain;">
     </a>
 </div>
+
 <div>
-    <a href="index.html">Inicio</a>
-    <a href="cursos.html">Cursos</a>
-    <a href="alquiler.html">Alquiler</a>
-    <a href="campamentos.html">Campamentos</a>
-    <a href="grupos.html">Grupos</a>
+    <a href="index.html" data-i18n="menu_inicio">Inicio</a>
+    <a href="cursos.html" data-i18n="menu_cursos">Cursos</a>
+    <a href="alquiler.html" data-i18n="menu_alquiler">Alquiler</a>
+    <a href="campamentos.html" data-i18n="menu_campamentos">Campamentos</a>
+    <a href="grupos.html" data-i18n="menu_grupos">Grupos</a>
 </div>
 
-<!-- Selector de idioma -->
 <select id="language-selector" style="
     padding:6px 10px;
     border-radius:8px;
@@ -159,64 +159,88 @@ margin-top:20px;
     <option value="de">🇩🇪 DE</option>
     <option value="it">🇮🇹 IT</option>
 </select>
-
 </nav>
 
 <!-- HERO -->
 <section class="hero">
-<h1>Grupos y Eventos</h1>
+<h1 data-i18n="grupos_hero_titulo">Grupos y Eventos</h1>
 </section>
 
 <section class="section">
 
-<h2>Actividades para grupos, colegios, empresas y despedidas</h2>
+<h2 data-i18n="grupos_intro_titulo">Actividades para grupos, colegios, empresas y despedidas</h2>
 
-<p>
+<p data-i18n="grupos_intro_texto1">
 Organizamos actividades para grupos de todos los tamaños: colegios, empresas, team building, despedidas, familias y amigos.  
 Una experiencia diferente, divertida y perfecta para fomentar el trabajo en equipo, la comunicación y la conexión con la naturaleza.
 </p>
 
-<p>
+<p data-i18n="grupos_intro_texto2">
 Todas las actividades se realizan con monitores cualificados y material de primera calidad, garantizando seguridad y diversión.
 </p>
 
 <div class="grid">
 
 <div class="card">
-<h3>Colegios</h3>
-<p>Actividades educativas y deportivas para grupos escolares. Paddle surf, kayak y juegos en la playa.</p>
+<h3 data-i18n="grupos_card1_titulo">Colegios</h3>
+<p data-i18n="grupos_card1_desc">Actividades educativas y deportivas para grupos escolares. Paddle surf, kayak y juegos en la playa.</p>
 </div>
 
 <div class="card">
-<h3>Team Building</h3>
-<p>Perfecto para empresas que buscan mejorar la cohesión del equipo en un entorno natural.</p>
+<h3 data-i18n="grupos_card2_titulo">Team Building</h3>
+<p data-i18n="grupos_card2_desc">Perfecto para empresas que buscan mejorar la cohesión del equipo en un entorno natural.</p>
 </div>
 
 <div class="card">
-<h3>Despedidas</h3>
-<p>Una actividad diferente, divertida y perfecta para grupos grandes.</p>
+<h3 data-i18n="grupos_card3_titulo">Despedidas</h3>
+<p data-i18n="grupos_card3_desc">Una actividad diferente, divertida y perfecta para grupos grandes.</p>
 </div>
 
 <div class="card">
-<h3>Familias y amigos</h3>
-<p>Vive una experiencia única en el mar con tus seres queridos.</p>
+<h3 data-i18n="grupos_card4_titulo">Familias y amigos</h3>
+<p data-i18n="grupos_card4_desc">Vive una experiencia única en el mar con tus seres queridos.</p>
 </div>
 
 </div>
 
-<h2 style="margin-top:60px;">Duración y precios</h2>
-<p>
+<h2 style="margin-top:60px;" data-i18n="grupos_duracion_titulo">Duración y precios</h2>
+
+<p data-i18n="grupos_duracion_texto1">
 Las actividades suelen tener una duración aproximada de <strong>3 horas</strong>.  
 El precio puede variar según el tamaño del grupo y el tipo de actividad.
 </p>
 
-<p>
+<p data-i18n="grupos_duracion_texto2">
 Para grupos grandes, recomendamos reservar con antelación para garantizar disponibilidad.
 </p>
 
-<a class="btn" href="reservar.html">Solicitar reserva</a>
+<a class="btn" href="reservar.html" data-i18n="grupos_boton_reserva">Solicitar reserva</a>
 
 </section>
 
+<script>
+document.getElementById("language-selector").addEventListener("change", function() {
+    const lang = this.value;
+    localStorage.setItem("lang", lang);
+    loadLanguage(lang);
+});
+
+function loadLanguage(lang) {
+    fetch(lang + ".json")
+        .then(response => response.json())
+        .then(data => {
+            document.querySelectorAll("[data-i18n]").forEach(el => {
+                const key = el.getAttribute("data-i18n");
+                if (data[key]) el.innerHTML = data[key];
+            });
+        });
+}
+
+const savedLang = localStorage.getItem("lang") || "es";
+document.getElementById("language-selector").value = savedLang;
+loadLanguage(savedLang);
+</script>
+
 </body>
 </html>
+
