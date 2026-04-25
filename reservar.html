@@ -3,12 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Reservar | DR Paddle Surf</title>
+
+<title data-i18n="reservar_meta_titulo">Reservar | DR Paddle Surf</title>
 
 <!-- Estilos generales -->
 <link rel="stylesheet" href="styles.css">
 
-<!-- Flatpickr (calendario guapo) -->
+<!-- Flatpickr -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 
@@ -71,69 +72,67 @@ button:hover {
         <img src="logotipo.png" style="height:55px;object-fit:contain;">
     </a>
 
-   <div>
-    <a href="index.html">Inicio</a>
-    <a href="cursos.html">Cursos</a>
-    <a href="alquiler.html">Alquiler</a>
-    <a href="campamentos.html">Campamentos</a>
-    <a href="grupos.html">Grupos</a>
-</div>
+    <div>
+        <a href="index.html" data-i18n="menu_inicio">Inicio</a>
+        <a href="cursos.html" data-i18n="menu_cursos">Cursos</a>
+        <a href="alquiler.html" data-i18n="menu_alquiler">Alquiler</a>
+        <a href="campamentos.html" data-i18n="menu_campamentos">Campamentos</a>
+        <a href="grupos.html" data-i18n="menu_grupos">Grupos</a>
+    </div>
 
-<!-- Selector de idioma -->
-<select id="language-selector" style="
-    padding:6px 10px;
-    border-radius:8px;
-    border:1px solid #ccc;
-    font-size:14px;
-    cursor:pointer;
-    margin-left:20px;
-">
-    <option value="es">🇪🇸 ES</option>
-    <option value="en">🇬🇧 EN</option>
-    <option value="fr">🇫🇷 FR</option>
-    <option value="de">🇩🇪 DE</option>
-    <option value="it">🇮🇹 IT</option>
-</select>
-
+    <select id="language-selector" style="
+        padding:6px 10px;
+        border-radius:8px;
+        border:1px solid #ccc;
+        font-size:14px;
+        cursor:pointer;
+        margin-left:20px;
+    ">
+        <option value="es">🇪🇸 ES</option>
+        <option value="en">🇬🇧 EN</option>
+        <option value="fr">🇫🇷 FR</option>
+        <option value="de">🇩🇪 DE</option>
+        <option value="it">🇮🇹 IT</option>
+    </select>
 </nav>
 
 <!-- FORMULARIO -->
 <div class="container">
-    <h2 style="text-align:center;margin-bottom:20px;">Reserva tu experiencia</h2>
+    <h2 style="text-align:center;margin-bottom:20px;" data-i18n="reservar_titulo">Reserva tu experiencia</h2>
 
-    <label>Nombre</label>
-    <input type="text" id="nombre" placeholder="Tu nombre">
+    <label data-i18n="reservar_nombre_label">Nombre</label>
+    <input type="text" id="nombre" placeholder="Tu nombre" data-i18n="reservar_nombre_placeholder">
 
-    <label>Teléfono</label>
-    <input type="text" id="telefono" placeholder="Tu teléfono">
+    <label data-i18n="reservar_telefono_label">Teléfono</label>
+    <input type="text" id="telefono" placeholder="Tu teléfono" data-i18n="reservar_telefono_placeholder">
 
-    <label>Actividad</label>
+    <label data-i18n="reservar_actividad_label">Actividad</label>
     <select id="actividad">
-        <option value="Bautismo Paddle Surf">Bautismo Paddle Surf</option>
-        <option value="Iniciación Nivel 2">Iniciación Nivel 2</option>
-        <option value="Iniciación Nivel 3">Iniciación Nivel 3</option>
-        <option value="Alquiler 1h">Alquiler 1h</option>
-        <option value="Alquiler 2h">Alquiler 2h</option>
-        <option value="Alquiler 3h">Alquiler 3h</option>
-        <option value="King Paddle">King Paddle</option>
-        <option value="Campamento de Verano">Campamento de Verano</option>
-        <option value="Grupo / Team Building">Grupo / Team Building</option>
+        <option value="Bautismo Paddle Surf" data-i18n="act_bautismo">Bautismo Paddle Surf</option>
+        <option value="Iniciación Nivel 2" data-i18n="act_n2">Iniciación Nivel 2</option>
+        <option value="Iniciación Nivel 3" data-i18n="act_n3">Iniciación Nivel 3</option>
+        <option value="Alquiler 1h" data-i18n="act_alq1">Alquiler 1h</option>
+        <option value="Alquiler 2h" data-i18n="act_alq2">Alquiler 2h</option>
+        <option value="Alquiler 3h" data-i18n="act_alq3">Alquiler 3h</option>
+        <option value="King Paddle" data-i18n="act_king">King Paddle</option>
+        <option value="Campamento de Verano" data-i18n="act_camp">Campamento de Verano</option>
+        <option value="Grupo / Team Building" data-i18n="act_grupo">Grupo / Team Building</option>
     </select>
 
-    <label>Fecha</label>
-    <input type="text" id="fecha" placeholder="Selecciona una fecha">
+    <label data-i18n="reservar_fecha_label">Fecha</label>
+    <input type="text" id="fecha" placeholder="Selecciona una fecha" data-i18n="reservar_fecha_placeholder">
 
-    <label>Hora</label>
+    <label data-i18n="reservar_hora_label">Hora</label>
     <input type="time" id="hora">
 
-    <label>Número de personas</label>
+    <label data-i18n="reservar_personas_label">Número de personas</label>
     <input type="number" id="personas" min="1" value="1">
 
-    <button onclick="enviarReserva()">Enviar reserva por WhatsApp</button>
+    <button onclick="enviarReserva()" data-i18n="reservar_boton">Enviar reserva por WhatsApp</button>
 </div>
 
 <script>
-// Activar calendario guapo
+// Activar calendario
 flatpickr("#fecha", {
     minDate: "today",
     dateFormat: "Y-m-d",
@@ -155,5 +154,35 @@ function enviarReserva() {
 }
 </script>
 
+<script>
+document.getElementById("language-selector").addEventListener("change", function() {
+    const lang = this.value;
+    localStorage.setItem("lang", lang);
+    loadLanguage(lang);
+});
+
+function loadLanguage(lang) {
+    fetch(lang + ".json")
+        .then(response => response.json())
+        .then(data => {
+            document.querySelectorAll("[data-i18n]").forEach(el => {
+                const key = el.getAttribute("data-i18n");
+                if (data[key]) {
+                    if (el.placeholder !== undefined) {
+                        el.placeholder = data[key];
+                    } else {
+                        el.innerHTML = data[key];
+                    }
+                }
+            });
+        });
+}
+
+const savedLang = localStorage.getItem("lang") || "es";
+document.getElementById("language-selector").value = savedLang;
+loadLanguage(savedLang);
+</script>
+
 </body>
 </html>
+
