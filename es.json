@@ -1,6 +1,30 @@
 {
+  "menu_inicio": "Inicio",
+  "menu_cursos": "Cursos",
+  "menu_alquiler": "Alquiler",
+  "menu_campamentos": "Campamentos",
+  "menu_grupos": "Grupos",
+
   "home_titulo": "DR PADDLE SURF",
   "home_subtitulo": "Paddle Surf en Torremolinos. Cursos, alquiler, campamentos y grupos.",
   "home_ver_actividades": "Ver actividades",
-  "home_boton_reservar": "Reservar ahora"
+  "home_boton_reservar": "Reservar ahora",
+
+  "actividades_titulo": "Qué ofrecemos",
+  "actividades_cursos": "Cursos",
+  "actividades_cursos_desc": "Desde bautismo hasta iniciación al surf...",
+  "actividades_alquiler": "Alquiler",
+  "actividades_alquiler_desc": "Tablas premium por horas...",
+  "actividades_campamentos": "Campamentos",
+  "actividades_campamentos_desc": "De lunes a viernes, 10:00 a 14:00...",
+  "actividades_grupos": "Grupos y eventos",
+  "actividades_grupos_desc": "Team building, colegios, despedidas...",
+
+  "reservas_titulo": "Reserva tu experiencia",
+  "reservas_texto": "Elige tu actividad, selecciona fecha y paga el 50% para asegurar tu plaza.",
+  "reservas_boton": "Reservar ahora",
+
+  "mapa_titulo": "Dónde estamos",
+
+  "footer_text": "DR Paddle Surf © Torremolinos, Málaga"
 }
