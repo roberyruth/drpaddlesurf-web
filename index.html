@@ -305,6 +305,29 @@ DR Paddle Surf © Torremolinos, Málaga
 
 <a class="whatsapp" href="https://wa.me/34610050723">💬</a>
 
+<script>
+document.getElementById("language-selector").addEventListener("change", function() {
+    const lang = this.value;
+    localStorage.setItem("lang", lang);
+    loadLanguage(lang);
+});
+
+function loadLanguage(lang) {
+    fetch(lang + ".json")
+        .then(response => response.json())
+        .then(data => {
+            document.querySelectorAll("[data-i18n]").forEach(el => {
+                const key = el.getAttribute("data-i18n");
+                if (data[key]) el.innerHTML = data[key];
+            });
+        });
+}
+
+const savedLang = localStorage.getItem("lang") || "es";
+document.getElementById("language-selector").value = savedLang;
+loadLanguage(savedLang);
+</script>
+
 </body>
 </html>
 
