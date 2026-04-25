@@ -18,26 +18,124 @@ color:#0a1a2a;
 overflow-x:hidden;
 }
 
-/* NAV */
-nav{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-padding:18px 40px;
-display:flex;
-justify-content:space-between;
-align-items:center;
-backdrop-filter:blur(12px);
-background:rgba(255,255,255,0.55);
-z-index:999;
+/* NAV GENERAL */
+.nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 15px 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    backdrop-filter: blur(12px);
+    background: rgba(255,255,255,0.55);
+    z-index: 999;
 }
 
-nav a{
-text-decoration:none;
-color:#0a1a2a;
-font-weight:600;
-margin-left:25px;
+.nav-logo img {
+    height: 55px;
+}
+
+/* HAMBURGUESA PRO */
+.nav-toggle {
+    width: 32px;
+    height: 26px;
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+.nav-toggle span {
+    display: block;
+    height: 4px;
+    background: #0a1a2a;
+    border-radius: 4px;
+    transition: 0.3s;
+}
+
+/* ANIMACIÓN HAMBURGUESA → X */
+.nav-toggle.active span:nth-child(1) {
+    transform: translateY(11px) rotate(45deg);
+}
+.nav-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+.nav-toggle.active span:nth-child(3) {
+    transform: translateY(-11px) rotate(-45deg);
+}
+
+/* OVERLAY OSCURO */
+.nav-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(0,0,0,0.45);
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.3s;
+    z-index: 998;
+}
+
+/* MENÚ DESLIZABLE PRO */
+.nav-menu {
+    position: fixed;
+    top: 0;
+    right: -280px;
+    width: 280px;
+    height: 100vh;
+    background: white;
+    box-shadow: -2px 0 12px rgba(0,0,0,0.15);
+    padding: 80px 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    transition: 0.35s ease;
+    z-index: 9999;
+}
+
+.nav-menu a {
+    font-size: 22px;
+    text-decoration: none;
+    color: #0a1a2a;
+    font-weight: 700;
+}
+
+.nav-menu select {
+    margin-top: 20px;
+    padding: 10px;
+    font-size: 16px;
+}
+
+/* BOTÓN CERRAR */
+.nav-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 32px;
+    cursor: pointer;
+}
+
+/* IDIOMAS ESCRITORIO */
+.nav-lang-desktop {
+    padding: 6px 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+}
+
+/* RESPONSIVE NAV */
+@media(max-width: 900px) {
+    .nav-toggle {
+        display: flex;
+    }
+
+    .nav-lang-desktop {
+        display: none;
+    }
 }
 
 /* HERO */
@@ -53,6 +151,7 @@ text-align:center;
 color:white;
 text-shadow:0 4px 20px rgba(0,0,0,0.6);
 padding:20px;
+margin-top:80px;
 }
 
 .hero h1{
@@ -73,22 +172,24 @@ margin-bottom:20px;
 font-weight:800;
 }
 
-.course{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:40px;
-margin-bottom:80px;
-align-items:center;
-}
-
-.course img{
-width:100%;
-border-radius:18px;
-}
-
-.course p{
+p{
 font-size:18px;
 line-height:1.6;
+margin-bottom:20px;
+}
+
+.card{
+background:#f4f4f4;
+padding:30px;
+border-radius:18px;
+margin-top:40px;
+}
+
+.price{
+font-size:32px;
+font-weight:800;
+color:#009dff;
+margin:10px 0;
 }
 
 /* BUTTON */
@@ -102,48 +203,48 @@ background:#009dff;
 color:white;
 margin-top:20px;
 }
-
-/* MOBILE */
-@media(max-width:900px){
-.course{
-grid-template-columns:1fr;
-}
-}
 </style>
 </head>
 
 <body>
 
-<!-- NAV -->
-<nav>
-<div>
-    <a href="index.html">
-        <img src="logotipo.png" alt="DR Paddle Surf" style="height:55px; object-fit:contain;">
+<!-- NAV PRO -->
+<nav class="nav">
+    <a href="index.html" class="nav-logo">
+        <img src="logotipo.png" alt="DR Paddle Surf">
     </a>
-</div>
 
-<div>
-    <a href="index.html" data-i18n="menu_inicio">Inicio</a>
-    <a href="cursos.html" data-i18n="menu_cursos">Cursos</a>
-    <a href="alquiler.html" data-i18n="menu_alquiler">Alquiler</a>
-    <a href="campamentos.html" data-i18n="menu_campamentos">Campamentos</a>
-    <a href="grupos.html" data-i18n="menu_grupos">Grupos</a>
-</div>
+    <div class="nav-toggle" id="nav-toggle">
+        <span></span><span></span><span></span>
+    </div>
 
-<select id="language-selector" style="
-    padding:6px 10px;
-    border-radius:8px;
-    border:1px solid #ccc;
-    font-size:14px;
-    cursor:pointer;
-    margin-left:20px;
-">
-    <option value="es">🇪🇸 ES</option>
-    <option value="en">🇬🇧 EN</option>
-    <option value="fr">🇫🇷 FR</option>
-    <option value="de">🇩🇪 DE</option>
-    <option value="it">🇮🇹 IT</option>
-</select>
+    <div class="nav-overlay" id="nav-overlay"></div>
+
+    <div class="nav-menu" id="nav-menu">
+        <div class="nav-close" id="nav-close">✕</div>
+
+        <a href="index.html" data-i18n="menu_inicio">Inicio</a>
+        <a href="cursos.html" data-i18n="menu_cursos">Cursos</a>
+        <a href="alquiler.html" data-i18n="menu_alquiler">Alquiler</a>
+        <a href="campamentos.html" data-i18n="menu_campamentos">Campamentos</a>
+        <a href="grupos.html" data-i18n="menu_grupos">Grupos</a>
+
+        <select id="language-selector-mobile">
+            <option value="es">🇪🇸 ES</option>
+            <option value="en">🇬🇧 EN</option>
+            <option value="fr">🇫🇷 FR</option>
+            <option value="de">🇩🇪 DE</option>
+            <option value="it">🇮🇹 IT</option>
+        </select>
+    </div>
+
+    <select id="language-selector" class="nav-lang-desktop">
+        <option value="es">🇪🇸 ES</option>
+        <option value="en">🇬🇧 EN</option>
+        <option value="fr">🇫🇷 FR</option>
+        <option value="de">🇩🇪 DE</option>
+        <option value="it">🇮🇹 IT</option>
+    </select>
 </nav>
 
 <!-- HERO -->
@@ -155,55 +256,83 @@ grid-template-columns:1fr;
 
 <h2 data-i18n="cursos_intro_titulo">Aprende Paddle Surf con profesionales</h2>
 
-<p data-i18n="cursos_intro_texto" style="max-width:800px;margin-bottom:50px;">
-Nuestros cursos de SUP están dirigidos a todas las edades y niveles: desde la iniciación más básica hasta el perfeccionamiento técnico y la práctica del surf. 
-Aprende en un entorno seguro, divertido y rodeado de naturaleza.
+<p data-i18n="cursos_intro_texto">
+Nuestros cursos de SUP están dirigidos a todas las edades y niveles: desde la iniciación más básica hasta el perfeccionamiento técnico y la práctica del surf. Aprende en un entorno seguro, divertido y rodeado de naturaleza.
 </p>
 
 <!-- BAUTISMO -->
-<div class="course">
-<img src="drpaddlesurf2.png" alt="Curso Bautismo Paddle Surf Torremolinos">
-<div>
+<div class="card">
 <h2 data-i18n="cursos_bautismo_titulo">Curso de Bautismo</h2>
 <p data-i18n="cursos_bautismo_texto">
-Te enseñaremos todo para empezar a practicar SUP. Desde el primer día te mantendrás de pie sobre la tabla, aprenderás a controlar tu equilibrio y dominarás las técnicas básicas de remada.
-<br><br>
-Este módulo se realiza en agua plana, siempre buscando las mejores condiciones de mar y viento.
+Te enseñaremos todo para empezar a practicar SUP...
 </p>
 <a class="btn" href="reservar.html" data-i18n="cursos_bautismo_boton">Reservar Bautismo</a>
 </div>
-</div>
 
 <!-- NIVEL 2 -->
-<div class="course">
-<img src="drpaddlesurf3.png" alt="Curso Iniciación Nivel 2 SUP">
-<div>
+<div class="card">
 <h2 data-i18n="cursos_n2_titulo">Iniciación Nivel 2</h2>
 <p data-i18n="cursos_n2_texto">
-En este nivel aprenderás diferentes tipos de giros, perfeccionamiento de remada y cómo moverte por la tabla con seguridad.
-<br><br>
-Ideal para quienes ya han probado el SUP y quieren avanzar.
+En este nivel aprenderás diferentes tipos de giros...
 </p>
 <a class="btn" href="reservar.html" data-i18n="cursos_n2_boton">Reservar Nivel 2</a>
 </div>
-</div>
 
 <!-- NIVEL 3 -->
-<div class="course">
-<img src="drpaddlesurf4.png" alt="Curso Iniciación Nivel 3 SUP Surf">
-<div>
+<div class="card">
 <h2 data-i18n="cursos_n3_titulo">Iniciación Nivel 3</h2>
 <p data-i18n="cursos_n3_texto">
-Aquí damos el salto hacia el surf: conocimiento de olas, viento y mareas, sincronización de remada y técnicas de salida en olas.
-<br><br>
-Este será tu nivel de iniciación al SUP Surf.
+Aquí damos el salto hacia el surf...
 </p>
 <a class="btn" href="reservar.html" data-i18n="cursos_n3_boton">Reservar Nivel 3</a>
-</div>
 </div>
 
 </section>
 
+<!-- SCRIPT MENÚ PRO -->
+<script>
+const navToggle = document.getElementById("nav-toggle");
+const navMenu = document.getElementById("nav-menu");
+const navOverlay = document.getElementById("nav-overlay");
+const navClose = document.getElementById("nav-close");
+
+function openMenu() {
+    navMenu.style.right = "0px";
+    navOverlay.style.opacity = "1";
+    navOverlay.style.pointerEvents = "auto";
+    navToggle.classList.add("active");
+}
+
+function closeMenu() {
+    navMenu.style.right = "-280px";
+    navOverlay.style.opacity = "0";
+    navOverlay.style.pointerEvents = "none";
+    navToggle.classList.remove("active");
+}
+
+navToggle.addEventListener("click", () => {
+    const isOpen = navMenu.style.right === "0px";
+    isOpen ? closeMenu() : openMenu();
+});
+
+navClose.addEventListener("click", closeMenu);
+navOverlay.addEventListener("click", closeMenu);
+
+/* Sincronizar idiomas móvil ↔ escritorio */
+const langDesktop = document.getElementById("language-selector");
+const langMobile = document.getElementById("language-selector-mobile");
+
+langMobile.addEventListener("change", () => {
+    langDesktop.value = langMobile.value;
+    langDesktop.dispatchEvent(new Event("change"));
+});
+
+langDesktop.addEventListener("change", () => {
+    langMobile.value = langDesktop.value;
+});
+</script>
+
+<!-- SCRIPT MULTILENGUAJE -->
 <script>
 document.getElementById("language-selector").addEventListener("change", function() {
     const lang = this.value;
@@ -229,4 +358,5 @@ loadLanguage(savedLang);
 
 </body>
 </html>
+
 
