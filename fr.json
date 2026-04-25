@@ -1,0 +1,30 @@
+{
+  "menu_inicio": "Accueil",
+  "menu_cursos": "Cours",
+  "menu_alquiler": "Location",
+  "menu_campamentos": "Stages",
+  "menu_grupos": "Groupes",
+
+  "home_titulo": "DR PADDLE SURF",
+  "home_subtitulo": "Paddle Surf à Torremolinos. Cours, location, stages et groupes.",
+  "home_ver_actividades": "Voir les activités",
+  "home_boton_reservar": "Réserver",
+
+  "actividades_titulo": "Ce que nous proposons",
+  "actividades_cursos": "Cours",
+  "actividades_cursos_desc": "Du baptême à l’initiation au surf...",
+  "actividades_alquiler": "Location",
+  "actividades_alquiler_desc": "Planches premium à l’heure...",
+  "actividades_campamentos": "Stages",
+  "actividades_campamentos_desc": "Du lundi au vendredi, 10h00 à 14h00...",
+  "actividades_grupos": "Groupes et événements",
+  "actividades_grupos_desc": "Team building, écoles, enterrements de vie...",
+
+  "reservas_titulo": "Réservez votre expérience",
+  "reservas_texto": "Choisissez votre activité, sélectionnez une date et payez 50% pour garantir votre place.",
+  "reservas_boton": "Réserver",
+
+  "mapa_titulo": "Où nous sommes",
+
+  "footer_text": "DR Paddle Surf © Torremolinos, Málaga"
+}
