@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Cursos de Paddle Surf | DR Paddle Surf Torremolinos</title>
-<meta name="description" content="Cursos de Paddle Surf en Torremolinos. Bautismo, iniciación nivel 2 y nivel 3. Aprende SUP con instructores profesionales. Reserva online.">
+<title data-i18n="cursos_meta_titulo">Cursos de Paddle Surf | DR Paddle Surf Torremolinos</title>
+<meta name="description" content="Cursos de Paddle Surf en Torremolinos. Bautismo, iniciación nivel 2 y nivel 3. Aprende SUP con instructores profesionales. Reserva online." data-i18n="cursos_meta_desc">
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
 
@@ -121,15 +121,15 @@ grid-template-columns:1fr;
         <img src="logotipo.png" alt="DR Paddle Surf" style="height:55px; object-fit:contain;">
     </a>
 </div>
+
 <div>
-    <a href="index.html">Inicio</a>
-    <a href="cursos.html">Cursos</a>
-    <a href="alquiler.html">Alquiler</a>
-    <a href="campamentos.html">Campamentos</a>
-    <a href="grupos.html">Grupos</a>
+    <a href="index.html" data-i18n="menu_inicio">Inicio</a>
+    <a href="cursos.html" data-i18n="menu_cursos">Cursos</a>
+    <a href="alquiler.html" data-i18n="menu_alquiler">Alquiler</a>
+    <a href="campamentos.html" data-i18n="menu_campamentos">Campamentos</a>
+    <a href="grupos.html" data-i18n="menu_grupos">Grupos</a>
 </div>
 
-<!-- Selector de idioma -->
 <select id="language-selector" style="
     padding:6px 10px;
     border-radius:8px;
@@ -144,18 +144,18 @@ grid-template-columns:1fr;
     <option value="de">🇩🇪 DE</option>
     <option value="it">🇮🇹 IT</option>
 </select>
-
 </nav>
 
 <!-- HERO -->
 <section class="hero">
-<h1>Cursos de Paddle Surf</h1>
+<h1 data-i18n="cursos_hero_titulo">Cursos de Paddle Surf</h1>
 </section>
 
 <section class="section">
 
-<h2>Aprende Paddle Surf con profesionales</h2>
-<p style="max-width:800px;margin-bottom:50px;">
+<h2 data-i18n="cursos_intro_titulo">Aprende Paddle Surf con profesionales</h2>
+
+<p data-i18n="cursos_intro_texto" style="max-width:800px;margin-bottom:50px;">
 Nuestros cursos de SUP están dirigidos a todas las edades y niveles: desde la iniciación más básica hasta el perfeccionamiento técnico y la práctica del surf. 
 Aprende en un entorno seguro, divertido y rodeado de naturaleza.
 </p>
@@ -164,13 +164,13 @@ Aprende en un entorno seguro, divertido y rodeado de naturaleza.
 <div class="course">
 <img src="drpaddlesurf2.png" alt="Curso Bautismo Paddle Surf Torremolinos">
 <div>
-<h2>Curso de Bautismo</h2>
-<p>
+<h2 data-i18n="cursos_bautismo_titulo">Curso de Bautismo</h2>
+<p data-i18n="cursos_bautismo_texto">
 Te enseñaremos todo para empezar a practicar SUP. Desde el primer día te mantendrás de pie sobre la tabla, aprenderás a controlar tu equilibrio y dominarás las técnicas básicas de remada.
 <br><br>
 Este módulo se realiza en agua plana, siempre buscando las mejores condiciones de mar y viento.
 </p>
-<a class="btn" href="reservar.html">Reservar Bautismo</a>
+<a class="btn" href="reservar.html" data-i18n="cursos_bautismo_boton">Reservar Bautismo</a>
 </div>
 </div>
 
@@ -178,13 +178,13 @@ Este módulo se realiza en agua plana, siempre buscando las mejores condiciones 
 <div class="course">
 <img src="drpaddlesurf3.png" alt="Curso Iniciación Nivel 2 SUP">
 <div>
-<h2>Iniciación Nivel 2</h2>
-<p>
+<h2 data-i18n="cursos_n2_titulo">Iniciación Nivel 2</h2>
+<p data-i18n="cursos_n2_texto">
 En este nivel aprenderás diferentes tipos de giros, perfeccionamiento de remada y cómo moverte por la tabla con seguridad.
 <br><br>
 Ideal para quienes ya han probado el SUP y quieren avanzar.
 </p>
-<a class="btn" href="reservar.html">Reservar Nivel 2</a>
+<a class="btn" href="reservar.html" data-i18n="cursos_n2_boton">Reservar Nivel 2</a>
 </div>
 </div>
 
@@ -192,17 +192,41 @@ Ideal para quienes ya han probado el SUP y quieren avanzar.
 <div class="course">
 <img src="drpaddlesurf4.png" alt="Curso Iniciación Nivel 3 SUP Surf">
 <div>
-<h2>Iniciación Nivel 3</h2>
-<p>
+<h2 data-i18n="cursos_n3_titulo">Iniciación Nivel 3</h2>
+<p data-i18n="cursos_n3_texto">
 Aquí damos el salto hacia el surf: conocimiento de olas, viento y mareas, sincronización de remada y técnicas de salida en olas.
 <br><br>
 Este será tu nivel de iniciación al SUP Surf.
 </p>
-<a class="btn" href="reservar.html">Reservar Nivel 3</a>
+<a class="btn" href="reservar.html" data-i18n="cursos_n3_boton">Reservar Nivel 3</a>
 </div>
 </div>
 
 </section>
 
+<script>
+document.getElementById("language-selector").addEventListener("change", function() {
+    const lang = this.value;
+    localStorage.setItem("lang", lang);
+    loadLanguage(lang);
+});
+
+function loadLanguage(lang) {
+    fetch(lang + ".json")
+        .then(response => response.json())
+        .then(data => {
+            document.querySelectorAll("[data-i18n]").forEach(el => {
+                const key = el.getAttribute("data-i18n");
+                if (data[key]) el.innerHTML = data[key];
+            });
+        });
+}
+
+const savedLang = localStorage.getItem("lang") || "es";
+document.getElementById("language-selector").value = savedLang;
+loadLanguage(savedLang);
+</script>
+
 </body>
 </html>
+
