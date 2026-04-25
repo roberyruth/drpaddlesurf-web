@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title data-i18n="alquiler_meta_titulo">Alquiler de Paddle Surf | DR Paddle Surf Torremolinos</title>
-<meta name="description" content="Alquiler de Paddle Surf en Torremolinos. Tablas premium por horas, King Paddle y experiencias en el mar. Reserva online y disfruta del SUP." data-i18n="alquiler_meta_desc">
+<title>Alquiler de Paddle Surf | DR Paddle Surf Torremolinos</title>
+<meta name="description" content="Alquiler de Paddle Surf en Torremolinos. Tablas premium por horas, King Paddle y experiencias en el mar. Reserva online y disfruta del SUP.">
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
 
@@ -18,27 +18,117 @@ color:#0a1a2a;
 overflow-x:hidden;
 }
 
-/* NAV */
-nav{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-padding:18px 40px;
-display:flex;
-justify-content:space-between;
-align-items:center;
-backdrop-filter:blur(12px);
-background:rgba(255,255,255,0.55);
-z-index:999;
+/* NAV GENERAL */
+.nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 15px 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    backdrop-filter: blur(12px);
+    background: rgba(255,255,255,0.55);
+    z-index: 999;
 }
 
-nav a{
-text-decoration:none;
-color:#0a1a2a;
-font-weight:600;
-margin-left:25px;
+.nav-logo img {
+    height: 55px;
 }
+
+/* HAMBURGUESA PRO */
+.nav-toggle {
+    width: 32px;
+    height: 26px;
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+.nav-toggle span {
+    display: block;
+    height: 4px;
+    background: #0a1a2a;
+    border-radius: 4px;
+    transition: 0.3s;
+}
+
+/* ANIMACIÓN HAMBURGUESA → X */
+.nav-toggle.active span:nth-child(1) {
+    transform: translateY(11px) rotate(45deg);
+}
+.nav-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+.nav-toggle.active span:nth-child(3) {
+    transform: translateY(-11px) rotate(-45deg);
+}
+
+/* OVERLAY OSCURO */
+.nav-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(0,0,0,0.45);
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.3s;
+    z-index: 998;
+}
+
+/* MENÚ DESLIZABLE PRO */
+.nav-menu {
+    position: fixed;
+    top: 0;
+    right: -280px;
+    width: 280px;
+    height: 100vh;
+    background: white;
+    box-shadow: -2px 0 12px rgba(0,0,0,0.15);
+    padding: 80px 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    transition: 0.35s ease;
+    z-index: 9999;
+}
+
+.nav-menu a {
+    font-size: 22px;
+    text-decoration: none;
+    color: #0a1a2a;
+    font-weight: 700;
+}
+
+.nav-menu select {
+    margin-top: 20px;
+    padding: 10px;
+    font-size: 16px;
+}
+
+/* BOTÓN CERRAR */
+.nav-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 32px;
+    cursor: pointer;
+}
+
+/* IDIOMAS ESCRITORIO */
+.nav-lang-desktop {
+    padding: 6px 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+}
+
+/* NAV LINKS ESCRITORIO (OPCIONAL SI QUIERES MOSTRARLOS) */
+/* Si quieres que en escritorio se vean los enlaces en línea, puedes añadirlos aquí */
 
 /* HERO */
 .hero{
@@ -53,6 +143,7 @@ text-align:center;
 color:white;
 text-shadow:0 4px 20px rgba(0,0,0,0.6);
 padding:20px;
+margin-top:80px; /* para que no tape el nav fijo */
 }
 
 .hero h1{
@@ -127,45 +218,66 @@ color:white;
 margin-top:20px;
 }
 
-/* MOBILE */
-@media(max-width:900px){
-.hero{height:50vh}
+/* RESPONSIVE */
+@media(max-width: 900px) {
+    .nav-toggle {
+        display: flex;
+    }
+
+    .nav-lang-desktop {
+        display: none;
+    }
+
+    .hero{height:50vh}
 }
 </style>
 </head>
 
 <body>
 
-<!-- NAV -->
-<nav>
-<div>
-    <a href="index.html">
-        <img src="logotipo.png" alt="DR Paddle Surf" style="height:55px; object-fit:contain;">
+<!-- NAV PRO -->
+<nav class="nav">
+    <a href="index.html" class="nav-logo">
+        <img src="logotipo.png" alt="DR Paddle Surf">
     </a>
-</div>
 
-<div>
-    <a href="index.html" data-i18n="menu_inicio">Inicio</a>
-    <a href="cursos.html" data-i18n="menu_cursos">Cursos</a>
-    <a href="alquiler.html" data-i18n="menu_alquiler">Alquiler</a>
-    <a href="campamentos.html" data-i18n="menu_campamentos">Campamentos</a>
-    <a href="grupos.html" data-i18n="menu_grupos">Grupos</a>
-</div>
+    <!-- Botón hamburguesa -->
+    <div class="nav-toggle" id="nav-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
 
-<select id="language-selector" style="
-    padding:6px 10px;
-    border-radius:8px;
-    border:1px solid #ccc;
-    font-size:14px;
-    cursor:pointer;
-    margin-left:20px;
-">
-    <option value="es">🇪🇸 ES</option>
-    <option value="en">🇬🇧 EN</option>
-    <option value="fr">🇫🇷 FR</option>
-    <option value="de">🇩🇪 DE</option>
-    <option value="it">🇮🇹 IT</option>
-</select>
+    <!-- Fondo oscuro -->
+    <div class="nav-overlay" id="nav-overlay"></div>
+
+    <!-- Menú deslizable -->
+    <div class="nav-menu" id="nav-menu">
+        <div class="nav-close" id="nav-close">✕</div>
+
+        <a href="index.html" data-i18n="menu_inicio">Inicio</a>
+        <a href="cursos.html" data-i18n="menu_cursos">Cursos</a>
+        <a href="alquiler.html" data-i18n="menu_alquiler">Alquiler</a>
+        <a href="campamentos.html" data-i18n="menu_campamentos">Campamentos</a>
+        <a href="grupos.html" data-i18n="menu_grupos">Grupos</a>
+
+        <select id="language-selector-mobile">
+            <option value="es">🇪🇸 ES</option>
+            <option value="en">🇬🇧 EN</option>
+            <option value="fr">🇫🇷 FR</option>
+            <option value="de">🇩🇪 DE</option>
+            <option value="it">🇮🇹 IT</option>
+        </select>
+    </div>
+
+    <!-- Selector idioma escritorio -->
+    <select id="language-selector" class="nav-lang-desktop">
+        <option value="es">🇪🇸 ES</option>
+        <option value="en">🇬🇧 EN</option>
+        <option value="fr">🇫🇷 FR</option>
+        <option value="de">🇩🇪 DE</option>
+        <option value="it">🇮🇹 IT</option>
+    </select>
 </nav>
 
 <!-- HERO -->
@@ -220,29 +332,56 @@ Alquila nuestro material y siéntete libre sobre el agua.
 
 </section>
 
+<!-- SCRIPT MENÚ PRO + IDIOMAS -->
 <script>
-document.getElementById("language-selector").addEventListener("change", function() {
-    const lang = this.value;
-    localStorage.setItem("lang", lang);
-    loadLanguage(lang);
-});
+const navToggle = document.getElementById("nav-toggle");
+const navMenu = document.getElementById("nav-menu");
+const navOverlay = document.getElementById("nav-overlay");
+const navClose = document.getElementById("nav-close");
 
-function loadLanguage(lang) {
-    fetch(lang + ".json")
-        .then(response => response.json())
-        .then(data => {
-            document.querySelectorAll("[data-i18n]").forEach(el => {
-                const key = el.getAttribute("data-i18n");
-                if (data[key]) el.innerHTML = data[key];
-            });
-        });
+function openMenu() {
+    navMenu.style.right = "0px";
+    navOverlay.style.opacity = "1";
+    navOverlay.style.pointerEvents = "auto";
+    navToggle.classList.add("active");
 }
 
-const savedLang = localStorage.getItem("lang") || "es";
-document.getElementById("language-selector").value = savedLang;
-loadLanguage(savedLang);
+function closeMenu() {
+    navMenu.style.right = "-280px";
+    navOverlay.style.opacity = "0";
+    navOverlay.style.pointerEvents = "none";
+    navToggle.classList.remove("active");
+}
+
+navToggle.addEventListener("click", () => {
+    const isOpen = navMenu.style.right === "0px";
+    if (isOpen) {
+        closeMenu();
+    } else {
+        openMenu();
+    }
+});
+
+navClose.addEventListener("click", closeMenu);
+navOverlay.addEventListener("click", closeMenu);
+
+/* Sincronizar idiomas móvil ↔ escritorio */
+const langDesktop = document.getElementById("language-selector");
+const langMobile = document.getElementById("language-selector-mobile");
+
+langMobile.addEventListener("change", () => {
+    langDesktop.value = langMobile.value;
+    langDesktop.dispatchEvent(new Event("change"));
+});
+
+langDesktop.addEventListener("change", () => {
+    langMobile.value = langDesktop.value;
+});
 </script>
+
+<!-- AQUÍ IRÍA TU SCRIPT DE TRADUCCIÓN GLOBAL SI LO TIENES EN UN JS EXTERNO -->
 
 </body>
 </html>
+
 
