@@ -6,44 +6,184 @@
 
 <title data-i18n="reservar_meta_titulo">Reservar | DR Paddle Surf</title>
 
-<!-- Estilos generales -->
-<link rel="stylesheet" href="styles.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
 
 <!-- Flatpickr -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 
 <style>
-body { font-family: Arial, sans-serif; margin:0; padding:0; }
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+font-family:Inter,sans-serif;
+background:#ffffff;
+color:#0a1a2a;
+overflow-x:hidden;
+}
 
+/* NAV GENERAL */
+.nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 15px 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    backdrop-filter: blur(12px);
+    background: rgba(255,255,255,0.55);
+    z-index: 999;
+}
+
+.nav-logo img {
+    height: 55px;
+}
+
+/* HAMBURGUESA PRO */
+.nav-toggle {
+    width: 32px;
+    height: 26px;
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+.nav-toggle span {
+    display: block;
+    height: 4px;
+    background: #0a1a2a;
+    border-radius: 4px;
+    transition: 0.3s;
+}
+
+/* ANIMACIÓN HAMBURGUESA → X */
+.nav-toggle.active span:nth-child(1) {
+    transform: translateY(11px) rotate(45deg);
+}
+.nav-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+.nav-toggle.active span:nth-child(3) {
+    transform: translateY(-11px) rotate(-45deg);
+}
+
+/* OVERLAY OSCURO */
+.nav-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(0,0,0,0.45);
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.3s;
+    z-index: 998;
+}
+
+/* MENÚ DESLIZABLE PRO */
+.nav-menu {
+    position: fixed;
+    top: 0;
+    right: -280px;
+    width: 280px;
+    height: 100vh;
+    background: white;
+    box-shadow: -2px 0 12px rgba(0,0,0,0.15);
+    padding: 80px 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    transition: 0.35s ease;
+    z-index: 9999;
+}
+
+.nav-menu a {
+    font-size: 22px;
+    text-decoration: none;
+    color: #0a1a2a;
+    font-weight: 700;
+}
+
+.nav-menu select {
+    margin-top: 20px;
+    padding: 10px;
+    font-size: 16px;
+}
+
+/* BOTÓN CERRAR */
+.nav-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 32px;
+    cursor: pointer;
+}
+
+/* IDIOMAS ESCRITORIO */
+.nav-lang-desktop {
+    padding: 6px 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+}
+
+/* RESPONSIVE NAV */
+@media(max-width: 900px) {
+    .nav-toggle {
+        display: flex;
+    }
+
+    .nav-lang-desktop {
+        display: none;
+    }
+}
+
+/* FORMULARIO */
 .container {
     max-width: 700px;
     margin: auto;
-    padding: 20px;
+    padding: 120px 20px 40px;
+}
+
+h2{
+text-align:center;
+font-size:clamp(28px,5vw,42px);
+margin-bottom:30px;
+font-weight:800;
+}
+
+label{
+font-weight:600;
+margin-bottom:6px;
+display:block;
 }
 
 input, select {
     width: 100%;
-    padding: 12px;
-    margin-bottom: 15px;
-    border-radius: 8px;
+    padding: 14px;
+    margin-bottom: 18px;
+    border-radius: 10px;
     border: 1px solid #ccc;
     font-size: 16px;
 }
 
 button {
     width: 100%;
-    padding: 14px;
-    background: #007acc;
+    padding: 16px;
+    background: #009dff;
     color: white;
     border: none;
-    border-radius: 10px;
-    font-size: 18px;
+    border-radius: 12px;
+    font-size: 20px;
     cursor: pointer;
+    font-weight:700;
 }
 
 button:hover {
-    background: #005fa3;
+    background: #007acc;
 }
 
 /* Calendario bonito */
@@ -66,28 +206,37 @@ button:hover {
 
 <body>
 
-<!-- NAV -->
-<nav style="display:flex;justify-content:space-between;align-items:center;padding:15px 25px;background:white;box-shadow:0 2px 10px rgba(0,0,0,0.1);">
-    <a href="index.html">
-        <img src="logotipo.png" style="height:55px;object-fit:contain;">
+<!-- NAV PRO -->
+<nav class="nav">
+    <a href="index.html" class="nav-logo">
+        <img src="logotipo.png" alt="DR Paddle Surf">
     </a>
 
-    <div>
+    <div class="nav-toggle" id="nav-toggle">
+        <span></span><span></span><span></span>
+    </div>
+
+    <div class="nav-overlay" id="nav-overlay"></div>
+
+    <div class="nav-menu" id="nav-menu">
+        <div class="nav-close" id="nav-close">✕</div>
+
         <a href="index.html" data-i18n="menu_inicio">Inicio</a>
         <a href="cursos.html" data-i18n="menu_cursos">Cursos</a>
         <a href="alquiler.html" data-i18n="menu_alquiler">Alquiler</a>
         <a href="campamentos.html" data-i18n="menu_campamentos">Campamentos</a>
         <a href="grupos.html" data-i18n="menu_grupos">Grupos</a>
+
+        <select id="language-selector-mobile">
+            <option value="es">🇪🇸 ES</option>
+            <option value="en">🇬🇧 EN</option>
+            <option value="fr">🇫🇷 FR</option>
+            <option value="de">🇩🇪 DE</option>
+            <option value="it">🇮🇹 IT</option>
+        </select>
     </div>
 
-    <select id="language-selector" style="
-        padding:6px 10px;
-        border-radius:8px;
-        border:1px solid #ccc;
-        font-size:14px;
-        cursor:pointer;
-        margin-left:20px;
-    ">
+    <select id="language-selector" class="nav-lang-desktop">
         <option value="es">🇪🇸 ES</option>
         <option value="en">🇬🇧 EN</option>
         <option value="fr">🇫🇷 FR</option>
@@ -98,13 +247,13 @@ button:hover {
 
 <!-- FORMULARIO -->
 <div class="container">
-    <h2 style="text-align:center;margin-bottom:20px;" data-i18n="reservar_titulo">Reserva tu experiencia</h2>
+    <h2 data-i18n="reservar_titulo">Reserva tu experiencia</h2>
 
     <label data-i18n="reservar_nombre_label">Nombre</label>
-    <input type="text" id="nombre" placeholder="Tu nombre" data-i18n="reservar_nombre_placeholder">
+    <input type="text" id="nombre" data-i18n-placeholder="reservar_nombre_placeholder" placeholder="Tu nombre">
 
     <label data-i18n="reservar_telefono_label">Teléfono</label>
-    <input type="text" id="telefono" placeholder="Tu teléfono" data-i18n="reservar_telefono_placeholder">
+    <input type="text" id="telefono" data-i18n-placeholder="reservar_telefono_placeholder" placeholder="Tu teléfono">
 
     <label data-i18n="reservar_actividad_label">Actividad</label>
     <select id="actividad">
@@ -120,7 +269,7 @@ button:hover {
     </select>
 
     <label data-i18n="reservar_fecha_label">Fecha</label>
-    <input type="text" id="fecha" placeholder="Selecciona una fecha" data-i18n="reservar_fecha_placeholder">
+    <input type="text" id="fecha" data-i18n-placeholder="reservar_fecha_placeholder" placeholder="Selecciona una fecha">
 
     <label data-i18n="reservar_hora_label">Hora</label>
     <input type="time" id="hora">
@@ -131,29 +280,50 @@ button:hover {
     <button onclick="enviarReserva()" data-i18n="reservar_boton">Enviar reserva por WhatsApp</button>
 </div>
 
+<!-- SCRIPT MENÚ PRO -->
 <script>
-// Activar calendario
-flatpickr("#fecha", {
-    minDate: "today",
-    dateFormat: "Y-m-d",
-    locale: "es"
+const navToggle = document.getElementById("nav-toggle");
+const navMenu = document.getElementById("nav-menu");
+const navOverlay = document.getElementById("nav-overlay");
+const navClose = document.getElementById("nav-close");
+
+function openMenu() {
+    navMenu.style.right = "0px";
+    navOverlay.style.opacity = "1";
+    navOverlay.style.pointerEvents = "auto";
+    navToggle.classList.add("active");
+}
+
+function closeMenu() {
+    navMenu.style.right = "-280px";
+    navOverlay.style.opacity = "0";
+    navOverlay.style.pointerEvents = "none";
+    navToggle.classList.remove("active");
+}
+
+navToggle.addEventListener("click", () => {
+    const isOpen = navMenu.style.right === "0px";
+    isOpen ? closeMenu() : openMenu();
 });
 
-// Enviar por WhatsApp
-function enviarReserva() {
-    let nombre = document.getElementById("nombre").value;
-    let telefono = document.getElementById("telefono").value;
-    let actividad = document.getElementById("actividad").value;
-    let fecha = document.getElementById("fecha").value;
-    let hora = document.getElementById("hora").value;
-    let personas = document.getElementById("personas").value;
+navClose.addEventListener("click", closeMenu);
+navOverlay.addEventListener("click", closeMenu);
 
-    let mensaje = `Hola! Soy ${nombre}. Quiero reservar: ${actividad}. Fecha: ${fecha}. Hora: ${hora}. Personas: ${personas}. Mi teléfono: ${telefono}`;
+/* Sincronizar idiomas móvil ↔ escritorio */
+const langDesktop = document.getElementById("language-selector");
+const langMobile = document.getElementById("language-selector-mobile");
 
-    window.open(`https://wa.me/34600000000?text=${encodeURIComponent(mensaje)}`);
-}
+langMobile.addEventListener("change", () => {
+    langDesktop.value = langMobile.value;
+    langDesktop.dispatchEvent(new Event("change"));
+});
+
+langDesktop.addEventListener("change", () => {
+    langMobile.value = langDesktop.value;
+});
 </script>
 
+<!-- SCRIPT MULTILENGUAJE -->
 <script>
 document.getElementById("language-selector").addEventListener("change", function() {
     const lang = this.value;
@@ -167,13 +337,12 @@ function loadLanguage(lang) {
         .then(data => {
             document.querySelectorAll("[data-i18n]").forEach(el => {
                 const key = el.getAttribute("data-i18n");
-                if (data[key]) {
-                    if (el.placeholder !== undefined) {
-                        el.placeholder = data[key];
-                    } else {
-                        el.innerHTML = data[key];
-                    }
-                }
+                if (data[key]) el.innerHTML = data[key];
+            });
+
+            document.querySelectorAll("[data-i18n-placeholder]").forEach(el => {
+                const key = el.getAttribute("data-i18n-placeholder");
+                if (data[key]) el.placeholder = data[key];
             });
         });
 }
@@ -183,6 +352,32 @@ document.getElementById("language-selector").value = savedLang;
 loadLanguage(savedLang);
 </script>
 
+<!-- CALENDARIO -->
+<script>
+flatpickr("#fecha", {
+    minDate: "today",
+    dateFormat: "Y-m-d",
+    locale: "es"
+});
+</script>
+
+<!-- WHATSAPP -->
+<script>
+function enviarReserva() {
+    let nombre = document.getElementById("nombre").value;
+    let telefono = document.getElementById("telefono").value;
+    let actividad = document.getElementById("actividad").value;
+    let fecha = document.getElementById("fecha").value;
+    let hora = document.getElementById("hora").value;
+    let personas = document.getElementById("personas").value;
+
+    let mensaje = `Hola! Soy ${nombre}. Quiero reservar: ${actividad}. Fecha: ${fecha}. Hora: ${hora}. Personas: ${personas}. Mi teléfono: ${telefono}`;
+
+    window.open(`https://wa.me/34610050723?text=${encodeURIComponent(mensaje)}`);
+}
+</script>
+
 </body>
 </html>
+
 
