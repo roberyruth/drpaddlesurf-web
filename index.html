@@ -177,15 +177,15 @@ text-decoration:none;
         <img src="logotipo.png" alt="DR Paddle Surf" style="height:55px; object-fit:contain;">
     </a>
 </div>
+
 <div>
-    <a href="index.html">Inicio</a>
-    <a href="cursos.html">Cursos</a>
-    <a href="alquiler.html">Alquiler</a>
-    <a href="campamentos.html">Campamentos</a>
-    <a href="grupos.html">Grupos</a>
+    <a href="index.html" data-i18n="menu_inicio">Inicio</a>
+    <a href="cursos.html" data-i18n="menu_cursos">Cursos</a>
+    <a href="alquiler.html" data-i18n="menu_alquiler">Alquiler</a>
+    <a href="campamentos.html" data-i18n="menu_campamentos">Campamentos</a>
+    <a href="grupos.html" data-i18n="menu_grupos">Grupos</a>
 </div>
 
-<!-- Selector de idioma -->
 <select id="language-selector" style="
     padding:6px 10px;
     border-radius:8px;
@@ -200,10 +200,9 @@ text-decoration:none;
     <option value="de">🇩🇪 DE</option>
     <option value="it">🇮🇹 IT</option>
 </select>
-
 </nav>
 
-<!-- HERO SLIDESHOW -->
+<!-- HERO -->
 <section class="hero">
 <div class="slide active" style="background-image:url('drpaddlesurf.png');"></div>
 <div class="slide" style="background-image:url('drpaddlesurf1.png');"></div>
@@ -228,50 +227,50 @@ text-decoration:none;
 </section>
 
 <script>
-let slides = document.querySelectorAll('.slide');
-let index = 0;
-setInterval(() => {
-    slides[index].classList.remove('active');
-    index = (index + 1) % slides.length;
-    slides[index].classList.add('active');
-}, 3000);
+let slides=document.querySelectorAll('.slide');
+let index=0;
+setInterval(()=>{
+slides[index].classList.remove('active');
+index=(index+1)%slides.length;
+slides[index].classList.add('active');
+},3000);
 </script>
 
 <!-- ACTIVIDADES -->
 <section class="section" id="actividades">
-<h2>Qué ofrecemos</h2>
+<h2 data-i18n="actividades_titulo">Qué ofrecemos</h2>
 
 <div class="grid">
 
 <a href="cursos.html" style="text-decoration:none; color:inherit;">
 <div class="card">
     <img src="drpaddlesurf1.png">
-    <h3>Cursos</h3>
-    <p>Desde bautismo hasta iniciación al surf...</p>
+    <h3 data-i18n="actividades_cursos">Cursos</h3>
+    <p data-i18n="actividades_cursos_desc">Desde bautismo hasta iniciación al surf...</p>
 </div>
 </a>
 
 <a href="alquiler.html" style="text-decoration:none; color:inherit;">
 <div class="card">
     <img src="drpaddlesurf5.png">
-    <h3>Alquiler</h3>
-    <p>Tablas premium por horas...</p>
+    <h3 data-i18n="actividades_alquiler">Alquiler</h3>
+    <p data-i18n="actividades_alquiler_desc">Tablas premium por horas...</p>
 </div>
 </a>
 
 <a href="campamentos.html" style="text-decoration:none; color:inherit;">
 <div class="card">
     <img src="drpaddlesurf7.png">
-    <h3>Campamentos</h3>
-    <p>De lunes a viernes, 10:00 a 14:00...</p>
+    <h3 data-i18n="actividades_campamentos">Campamentos</h3>
+    <p data-i18n="actividades_campamentos_desc">De lunes a viernes, 10:00 a 14:00...</p>
 </div>
 </a>
 
 <a href="grupos.html" style="text-decoration:none; color:inherit;">
 <div class="card">
     <img src="drpaddlesurf8.png">
-    <h3>Grupos y eventos</h3>
-    <p>Team building, colegios, despedidas...</p>
+    <h3 data-i18n="actividades_grupos">Grupos y eventos</h3>
+    <p data-i18n="actividades_grupos_desc">Team building, colegios, despedidas...</p>
 </div>
 </a>
 
@@ -280,21 +279,21 @@ setInterval(() => {
 
 <!-- RESERVAS -->
 <section class="section" id="reservas">
-<h2>Reserva tu experiencia</h2>
-<p style="text-align:center;max-width:700px;margin:auto;margin-bottom:30px;">
+<h2 data-i18n="reservas_titulo">Reserva tu experiencia</h2>
+<p data-i18n="reservas_texto" style="text-align:center;max-width:700px;margin:auto;margin-bottom:30px;">
 Elige tu actividad, selecciona fecha y paga el 50% para asegurar tu plaza.
 </p>
 
 <div style="text-align:center;">
-<a class="btn primary" href="reservar.html">Reservar ahora</a>
+<a class="btn primary" href="reservar.html" data-i18n="reservas_boton">Reservar ahora</a>
 </div>
 </section>
 
 <!-- MAPA -->
 <section class="section" id="contacto">
-<h2>Dónde estamos</h2>
+<h2 data-i18n="mapa_titulo">Dónde estamos</h2>
 
-<div class="map" style="width:100%; height:450px; border-radius:20px; overflow:hidden;">
+<div class="map">
 <iframe 
 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12806.199935711122!2d-4.499478339611816!3d36.637217497333715!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd72fbee6b35f6a5%3A0x400b234cc9324266!2sDR%20Paddle%20Surf!5e0!3m2!1ses!2ses!4v1777125767885!5m2!1ses!2ses"
 width="100%" 
@@ -308,7 +307,7 @@ referrerpolicy="no-referrer-when-downgrade">
 
 </section>
 
-<footer class="footer">
+<footer class="footer" data-i18n="footer_text">
 DR Paddle Surf © Torremolinos, Málaga
 </footer>
 
@@ -339,4 +338,3 @@ loadLanguage(savedLang);
 
 </body>
 </html>
-
