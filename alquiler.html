@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Alquiler de Paddle Surf | DR Paddle Surf Torremolinos</title>
-<meta name="description" content="Alquiler de Paddle Surf en Torremolinos. Tablas premium por horas, King Paddle y experiencias en el mar. Reserva online y disfruta del SUP.">
+<title data-i18n="alquiler_meta_titulo">Alquiler de Paddle Surf | DR Paddle Surf Torremolinos</title>
+<meta name="description" content="Alquiler de Paddle Surf en Torremolinos. Tablas premium por horas, King Paddle y experiencias en el mar. Reserva online y disfruta del SUP." data-i18n="alquiler_meta_desc">
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
 
@@ -143,15 +143,15 @@ margin-top:20px;
         <img src="logotipo.png" alt="DR Paddle Surf" style="height:55px; object-fit:contain;">
     </a>
 </div>
+
 <div>
-    <a href="index.html">Inicio</a>
-    <a href="cursos.html">Cursos</a>
-    <a href="alquiler.html">Alquiler</a>
-    <a href="campamentos.html">Campamentos</a>
-    <a href="grupos.html">Grupos</a>
+    <a href="index.html" data-i18n="menu_inicio">Inicio</a>
+    <a href="cursos.html" data-i18n="menu_cursos">Cursos</a>
+    <a href="alquiler.html" data-i18n="menu_alquiler">Alquiler</a>
+    <a href="campamentos.html" data-i18n="menu_campamentos">Campamentos</a>
+    <a href="grupos.html" data-i18n="menu_grupos">Grupos</a>
 </div>
 
-<!-- Selector de idioma -->
 <select id="language-selector" style="
     padding:6px 10px;
     border-radius:8px;
@@ -166,19 +166,18 @@ margin-top:20px;
     <option value="de">🇩🇪 DE</option>
     <option value="it">🇮🇹 IT</option>
 </select>
-
 </nav>
 
 <!-- HERO -->
 <section class="hero">
-<h1>Alquiler de Paddle Surf</h1>
+<h1 data-i18n="alquiler_hero_titulo">Alquiler de Paddle Surf</h1>
 </section>
 
 <section class="section">
 
-<h2>Disfruta del mar a tu ritmo</h2>
+<h2 data-i18n="alquiler_intro_titulo">Disfruta del mar a tu ritmo</h2>
 
-<p>
+<p data-i18n="alquiler_intro_texto">
 Si te gusta disfrutar de un día de playa mientras experimentas nuevas sensaciones, esta es tu oportunidad.  
 Alquila nuestro material y siéntete libre sobre el agua.
 </p>
@@ -187,39 +186,63 @@ Alquila nuestro material y siéntete libre sobre el agua.
 
 <!-- 1 HORA -->
 <div class="card">
-<h3>1 hora</h3>
-<p>Perfecto para una primera toma de contacto o un paseo rápido.</p>
-<div class="price">15 €</div>
-<a class="btn" href="reservar.html">Reservar 1 hora</a>
+<h3 data-i18n="alquiler_1h_titulo">1 hora</h3>
+<p data-i18n="alquiler_1h_desc">Perfecto para una primera toma de contacto o un paseo rápido.</p>
+<div class="price" data-i18n="alquiler_1h_precio">15 €</div>
+<a class="btn" href="reservar.html" data-i18n="alquiler_1h_boton">Reservar 1 hora</a>
 </div>
 
 <!-- 2 HORAS -->
 <div class="card">
-<h3>2 horas</h3>
-<p>Tiempo ideal para disfrutar sin prisas y explorar más.</p>
-<div class="price">25 €</div>
-<a class="btn" href="reservar.html">Reservar 2 horas</a>
+<h3 data-i18n="alquiler_2h_titulo">2 horas</h3>
+<p data-i18n="alquiler_2h_desc">Tiempo ideal para disfrutar sin prisas y explorar más.</p>
+<div class="price" data-i18n="alquiler_2h_precio">25 €</div>
+<a class="btn" href="reservar.html" data-i18n="alquiler_2h_boton">Reservar 2 horas</a>
 </div>
 
 <!-- 3 HORAS -->
 <div class="card">
-<h3>3 horas</h3>
-<p>Para los que quieren vivir la experiencia completa.</p>
-<div class="price">35 €</div>
-<a class="btn" href="reservar.html">Reservar 3 horas</a>
+<h3 data-i18n="alquiler_3h_titulo">3 horas</h3>
+<p data-i18n="alquiler_3h_desc">Para los que quieren vivir la experiencia completa.</p>
+<div class="price" data-i18n="alquiler_3h_precio">35 €</div>
+<a class="btn" href="reservar.html" data-i18n="alquiler_3h_boton">Reservar 3 horas</a>
 </div>
 
 <!-- KING PADDLE -->
 <div class="card">
-<h3>King Paddle</h3>
-<p>Tabla gigante para grupos. Diversión asegurada.</p>
-<div class="price">15 € / hora por persona</div>
-<a class="btn" href="reservar.html">Reservar King Paddle</a>
+<h3 data-i18n="alquiler_king_titulo">King Paddle</h3>
+<p data-i18n="alquiler_king_desc">Tabla gigante para grupos. Diversión asegurada.</p>
+<div class="price" data-i18n="alquiler_king_precio">15 € / hora por persona</div>
+<a class="btn" href="reservar.html" data-i18n="alquiler_king_boton">Reservar King Paddle</a>
 </div>
 
 </div>
 
 </section>
 
+<script>
+document.getElementById("language-selector").addEventListener("change", function() {
+    const lang = this.value;
+    localStorage.setItem("lang", lang);
+    loadLanguage(lang);
+});
+
+function loadLanguage(lang) {
+    fetch(lang + ".json")
+        .then(response => response.json())
+        .then(data => {
+            document.querySelectorAll("[data-i18n]").forEach(el => {
+                const key = el.getAttribute("data-i18n");
+                if (data[key]) el.innerHTML = data[key];
+            });
+        });
+}
+
+const savedLang = localStorage.getItem("lang") || "es";
+document.getElementById("language-selector").value = savedLang;
+loadLanguage(savedLang);
+</script>
+
 </body>
 </html>
+
