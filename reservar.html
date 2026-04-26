@@ -4,13 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title data-i18n="reservar_meta_titulo">Reservar | DR Paddle Surf</title>
+<title data-i18n="home_meta_titulo">DR Paddle Surf Torremolinos | Paddle Surf, Cursos y Alquiler</title>
+<meta name="description" content="Paddle Surf en Torremolinos. Cursos, alquiler, campamentos y actividades para grupos. Reserva online y disfruta del mar." data-i18n="home_meta_desc">
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
-
-<!-- Flatpickr -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
@@ -36,8 +33,28 @@ overflow-x:hidden;
     z-index: 999;
 }
 
+/* LOGO */
 .nav-logo img {
     height: 55px;
+}
+
+/* MENÚ ESCRITORIO */
+.nav-links-desktop {
+    display: flex;
+    gap: 25px;
+    align-items: center;
+}
+
+.nav-links-desktop a {
+    font-weight: 700;
+    text-decoration: none;
+    color: #0a1a2a;
+    font-size: 18px;
+    transition: 0.2s;
+}
+
+.nav-links-desktop a:hover {
+    color: #009dff;
 }
 
 /* HAMBURGUESA PRO */
@@ -136,88 +153,144 @@ overflow-x:hidden;
         display: flex;
     }
 
+    .nav-links-desktop {
+        display: none;
+    }
+
     .nav-lang-desktop {
         display: none;
     }
 }
 
-/* FORMULARIO */
-.container {
-    max-width: 700px;
-    margin: auto;
-    padding: 120px 20px 40px;
+/* HERO */
+.hero{
+height:90vh;
+background:url('drpaddlesurf1.png');
+background-size:cover;
+background-position:center;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+color:white;
+text-shadow:0 4px 20px rgba(0,0,0,0.6);
+padding:20px;
+margin-top:80px;
 }
 
-h2{
-text-align:center;
-font-size:clamp(28px,5vw,42px);
-margin-bottom:30px;
+.hero h1{
+font-size:clamp(42px,7vw,90px);
 font-weight:800;
 }
 
-label{
-font-weight:600;
-margin-bottom:6px;
-display:block;
+/* SECCIONES */
+.section{
+max-width:1200px;
+margin:auto;
+padding:80px 20px;
 }
 
-input, select {
-    width: 100%;
-    padding: 14px;
-    margin-bottom: 18px;
-    border-radius: 10px;
-    border: 1px solid #ccc;
-    font-size: 16px;
+h2{
+font-size:clamp(28px,5vw,42px);
+margin-bottom:20px;
+font-weight:800;
 }
 
-button {
-    width: 100%;
-    padding: 16px;
-    background: #009dff;
-    color: white;
-    border: none;
-    border-radius: 12px;
-    font-size: 20px;
-    cursor: pointer;
-    font-weight:700;
+p{
+font-size:18px;
+line-height:1.6;
+margin-bottom:20px;
 }
 
-button:hover {
-    background: #007acc;
+/* GRID */
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:30px;
+margin-top:40px;
 }
 
-/* Calendario bonito */
-.flatpickr-calendar {
-    border-radius: 12px;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+.card{
+background:#f4f4f4;
+padding:30px;
+border-radius:18px;
+text-align:center;
+transition:.3s;
 }
-.flatpickr-day.today {
-    background: #009dff !important;
-    color: white !important;
-    border-radius: 8px;
+
+.card:hover{
+transform:translateY(-6px);
+box-shadow:0 10px 25px rgba(0,0,0,.1);
 }
-.flatpickr-day.selected {
-    background: #007acc !important;
-    color: white !important;
-    border-radius: 8px;
+
+.card h3{
+font-size:24px;
+margin-bottom:10px;
+}
+
+.card p{
+margin-bottom:10px;
+}
+
+/* BUTTON */
+.btn{
+padding:15px 28px;
+border-radius:40px;
+font-weight:700;
+text-decoration:none;
+display:inline-block;
+background:#009dff;
+color:white;
+margin-top:20px;
+}
+
+/* BOTÓN WHATSAPP */
+.whatsapp {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    z-index: 99999;
+}
+
+.whatsapp img {
+    width: 70px;
+    height: 70px;
+    filter: drop-shadow(0 4px 10px rgba(0,0,0,0.3));
+    transition: 0.2s;
+}
+
+.whatsapp img:hover {
+    transform: scale(1.1);
 }
 </style>
 </head>
 
 <body>
 
-<!-- NAV PRO -->
+<!-- NAV COMPLETO -->
 <nav class="nav">
     <a href="index.html" class="nav-logo">
         <img src="logotipo.png" alt="DR Paddle Surf">
     </a>
 
+    <!-- MENÚ ESCRITORIO -->
+    <div class="nav-links-desktop">
+        <a href="index.html" data-i18n="menu_inicio">Inicio</a>
+        <a href="cursos.html" data-i18n="menu_cursos">Cursos</a>
+        <a href="alquiler.html" data-i18n="menu_alquiler">Alquiler</a>
+        <a href="campamentos.html" data-i18n="menu_campamentos">Campamentos</a>
+        <a href="grupos.html" data-i18n="menu_grupos">Grupos</a>
+    </div>
+
+    <!-- HAMBURGUESA -->
     <div class="nav-toggle" id="nav-toggle">
         <span></span><span></span><span></span>
     </div>
 
+    <!-- OVERLAY -->
     <div class="nav-overlay" id="nav-overlay"></div>
 
+    <!-- MENÚ MÓVIL -->
     <div class="nav-menu" id="nav-menu">
         <div class="nav-close" id="nav-close">✕</div>
 
@@ -236,6 +309,7 @@ button:hover {
         </select>
     </div>
 
+    <!-- IDIOMA ESCRITORIO -->
     <select id="language-selector" class="nav-lang-desktop">
         <option value="es">🇪🇸 ES</option>
         <option value="en">🇬🇧 EN</option>
@@ -245,40 +319,49 @@ button:hover {
     </select>
 </nav>
 
-<!-- FORMULARIO -->
-<div class="container">
-    <h2 data-i18n="reservar_titulo">Reserva tu experiencia</h2>
+<!-- HERO -->
+<section class="hero">
+<h1 data-i18n="home_hero_titulo">Paddle Surf en Torremolinos</h1>
+</section>
 
-    <label data-i18n="reservar_nombre_label">Nombre</label>
-    <input type="text" id="nombre" data-i18n-placeholder="reservar_nombre_placeholder" placeholder="Tu nombre">
+<section class="section">
 
-    <label data-i18n="reservar_telefono_label">Teléfono</label>
-    <input type="text" id="telefono" data-i18n-placeholder="reservar_telefono_placeholder" placeholder="Tu teléfono">
+<h2 data-i18n="home_intro_titulo">Vive el mar como nunca</h2>
 
-    <label data-i18n="reservar_actividad_label">Actividad</label>
-    <select id="actividad">
-        <option value="Bautismo Paddle Surf" data-i18n="act_bautismo">Bautismo Paddle Surf</option>
-        <option value="Iniciación Nivel 2" data-i18n="act_n2">Iniciación Nivel 2</option>
-        <option value="Iniciación Nivel 3" data-i18n="act_n3">Iniciación Nivel 3</option>
-        <option value="Alquiler 1h" data-i18n="act_alq1">Alquiler 1h</option>
-        <option value="Alquiler 2h" data-i18n="act_alq2">Alquiler 2h</option>
-        <option value="Alquiler 3h" data-i18n="act_alq3">Alquiler 3h</option>
-        <option value="King Paddle" data-i18n="act_king">King Paddle</option>
-        <option value="Campamento de Verano" data-i18n="act_camp">Campamento de Verano</option>
-        <option value="Grupo / Team Building" data-i18n="act_grupo">Grupo / Team Building</option>
-    </select>
+<p data-i18n="home_intro_texto">
+Cursos, alquiler, campamentos y actividades para grupos.  
+Todo en la playa de Torremolinos, con instructores profesionales y material de primera calidad.
+</p>
 
-    <label data-i18n="reservar_fecha_label">Fecha</label>
-    <input type="text" id="fecha" data-i18n-placeholder="reservar_fecha_placeholder" placeholder="Selecciona una fecha">
+<div class="grid">
 
-    <label data-i18n="reservar_hora_label">Hora</label>
-    <input type="time" id="hora">
-
-    <label data-i18n="reservar_personas_label">Número de personas</label>
-    <input type="number" id="personas" min="1" value="1">
-
-    <button onclick="enviarReserva()" data-i18n="reservar_boton">Enviar reserva por WhatsApp</button>
+<div class="card">
+<h3 data-i18n="home_card1_titulo">Cursos</h3>
+<p data-i18n="home_card1_desc">Aprende Paddle Surf desde cero o mejora tu técnica.</p>
+<a class="btn" href="cursos.html" data-i18n="home_card1_boton">Ver cursos</a>
 </div>
+
+<div class="card">
+<h3 data-i18n="home_card2_titulo">Alquiler</h3>
+<p data-i18n="home_card2_desc">Tablas premium por horas. Disfruta del mar a tu ritmo.</p>
+<a class="btn" href="alquiler.html" data-i18n="home_card2_boton">Ver alquiler</a>
+</div>
+
+<div class="card">
+<h3 data-i18n="home_card3_titulo">Campamentos</h3>
+<p data-i18n="home_card3_desc">Actividades para jóvenes de lunes a viernes.</p>
+<a class="btn" href="campamentos.html" data-i18n="home_card3_boton">Ver campamentos</a>
+</div>
+
+<div class="card">
+<h3 data-i18n="home_card4_titulo">Grupos</h3>
+<p data-i18n="home_card4_desc">Colegios, empresas, despedidas y familias.</p>
+<a class="btn" href="grupos.html" data-i18n="home_card4_boton">Ver actividades</a>
+</div>
+
+</div>
+
+</section>
 
 <!-- SCRIPT MENÚ PRO -->
 <script>
@@ -339,11 +422,6 @@ function loadLanguage(lang) {
                 const key = el.getAttribute("data-i18n");
                 if (data[key]) el.innerHTML = data[key];
             });
-
-            document.querySelectorAll("[data-i18n-placeholder]").forEach(el => {
-                const key = el.getAttribute("data-i18n-placeholder");
-                if (data[key]) el.placeholder = data[key];
-            });
         });
 }
 
@@ -352,30 +430,10 @@ document.getElementById("language-selector").value = savedLang;
 loadLanguage(savedLang);
 </script>
 
-<!-- CALENDARIO -->
-<script>
-flatpickr("#fecha", {
-    minDate: "today",
-    dateFormat: "Y-m-d",
-    locale: "es"
-});
-</script>
-
-<!-- WHATSAPP -->
-<script>
-function enviarReserva() {
-    let nombre = document.getElementById("nombre").value;
-    let telefono = document.getElementById("telefono").value;
-    let actividad = document.getElementById("actividad").value;
-    let fecha = document.getElementById("fecha").value;
-    let hora = document.getElementById("hora").value;
-    let personas = document.getElementById("personas").value;
-
-    let mensaje = `Hola! Soy ${nombre}. Quiero reservar: ${actividad}. Fecha: ${fecha}. Hora: ${hora}. Personas: ${personas}. Mi teléfono: ${telefono}`;
-
-    window.open(`https://wa.me/34603750739?text=${encodeURIComponent(mensaje)}`);
-}
-</script>
+<!-- BOTÓN WHATSAPP -->
+<a class="whatsapp" href="https://wa.me/34603750739" target="_blank">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+</a>
 
 </body>
 </html>
