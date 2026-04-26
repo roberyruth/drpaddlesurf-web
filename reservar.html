@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title data-i18n="home_meta_titulo">DR Paddle Surf Torremolinos | Paddle Surf, Cursos y Alquiler</title>
-<meta name="description" content="Paddle Surf en Torremolinos. Cursos, alquiler, campamentos y actividades para grupos. Reserva online y disfruta del mar." data-i18n="home_meta_desc">
+<title>Reservar | DR Paddle Surf Torremolinos</title>
+<meta name="description" content="Reserva tu experiencia de Paddle Surf en Torremolinos: cursos, alquiler, campamentos y actividades para grupos.">
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
 
@@ -162,9 +162,9 @@ overflow-x:hidden;
     }
 }
 
-/* HERO */
+/* HERO RESERVAS */
 .hero{
-height:90vh;
+height:70vh;
 background:url('drpaddlesurf1.png');
 background-size:cover;
 background-position:center;
@@ -179,72 +179,79 @@ margin-top:80px;
 }
 
 .hero h1{
-font-size:clamp(42px,7vw,90px);
+font-size:clamp(42px,7vw,80px);
 font-weight:800;
+margin-bottom:10px;
+}
+
+.hero p{
+font-size:clamp(18px,3vw,24px);
 }
 
 /* SECCIONES */
 .section{
-max-width:1200px;
+max-width:900px;
 margin:auto;
-padding:80px 20px;
+padding:60px 20px 80px 20px;
 }
 
 h2{
 font-size:clamp(28px,5vw,42px);
 margin-bottom:20px;
 font-weight:800;
+text-align:center;
 }
 
 p{
 font-size:18px;
 line-height:1.6;
 margin-bottom:20px;
+text-align:center;
 }
 
-/* GRID */
-.grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-gap:30px;
-margin-top:40px;
-}
-
+/* CARD RESERVA */
 .card{
 background:#f4f4f4;
 padding:30px;
 border-radius:18px;
-text-align:center;
-transition:.3s;
-}
-
-.card:hover{
-transform:translateY(-6px);
-box-shadow:0 10px 25px rgba(0,0,0,.1);
+margin-top:20px;
 }
 
 .card h3{
-font-size:24px;
+font-size:22px;
 margin-bottom:10px;
+text-align:left;
 }
 
 .card p{
+text-align:left;
 margin-bottom:10px;
 }
 
-/* BUTTON */
+/* BOTONES */
 .btn{
 padding:15px 28px;
 border-radius:40px;
 font-weight:700;
 text-decoration:none;
 display:inline-block;
-background:#009dff;
-color:white;
-margin-top:20px;
+margin:5px;
+text-align:center;
 }
 
-/* BOTÓN WHATSAPP */
+.primary{background:#009dff;color:white}
+.secondary{border:2px solid #009dff;color:#009dff;background:white}
+
+/* FOOTER */
+.footer{
+text-align:center;
+padding:30px;
+background:#0a1a2a;
+color:white;
+margin-top:40px;
+}
+
+/* WHATSAPP */
 .whatsapp {
     position: fixed;
     bottom: 25px;
@@ -253,8 +260,8 @@ margin-top:20px;
 }
 
 .whatsapp img {
-    width: 70px;
-    height: 70px;
+    width: 80px;
+    height: 80px;
     filter: drop-shadow(0 4px 10px rgba(0,0,0,0.3));
     transition: 0.2s;
 }
@@ -267,7 +274,7 @@ margin-top:20px;
 
 <body>
 
-<!-- NAV COMPLETO -->
+<!-- NAV -->
 <nav class="nav">
     <a href="index.html" class="nav-logo">
         <img src="logotipo.png" alt="DR Paddle Surf">
@@ -319,49 +326,63 @@ margin-top:20px;
     </select>
 </nav>
 
-<!-- HERO -->
+<!-- HERO RESERVAS -->
 <section class="hero">
-<h1 data-i18n="home_hero_titulo">Paddle Surf en Torremolinos</h1>
+    <div>
+        <h1 data-i18n="reservar_hero_titulo">Reserva tu experiencia</h1>
+        <p data-i18n="reservar_hero_subtitulo">
+            Elige actividad, fecha y asegura tu plaza en DR Paddle Surf Torremolinos.
+        </p>
+    </div>
 </section>
 
 <section class="section">
+    <h2 data-i18n="reservar_titulo">Cómo funciona la reserva</h2>
 
-<h2 data-i18n="home_intro_titulo">Vive el mar como nunca</h2>
+    <p data-i18n="reservar_intro">
+        Rellena el formulario con tus datos, elige la actividad y la fecha que te interesa. 
+        Te confirmaremos la disponibilidad por WhatsApp antes de cerrar la reserva.
+    </p>
 
-<p data-i18n="home_intro_texto">
-Cursos, alquiler, campamentos y actividades para grupos.  
-Todo en la playa de Torremolinos, con instructores profesionales y material de primera calidad.
-</p>
+    <div class="card">
+        <h3 data-i18n="reservar_paso1_titulo">1. Elige tu actividad</h3>
+        <p data-i18n="reservar_paso1_texto">
+            Cursos, alquiler, campamentos de verano o actividades para grupos y empresas.
+        </p>
 
-<div class="grid">
+        <h3 data-i18n="reservar_paso2_titulo">2. Indica fecha y horario</h3>
+        <p data-i18n="reservar_paso2_texto">
+            Cuéntanos qué día te gustaría venir y en qué franja horaria.
+        </p>
 
-<div class="card">
-<h3 data-i18n="home_card1_titulo">Cursos</h3>
-<p data-i18n="home_card1_desc">Aprende Paddle Surf desde cero o mejora tu técnica.</p>
-<a class="btn" href="cursos.html" data-i18n="home_card1_boton">Ver cursos</a>
-</div>
+        <h3 data-i18n="reservar_paso3_titulo">3. Confirmación por WhatsApp</h3>
+        <p data-i18n="reservar_paso3_texto">
+            Te responderemos al <strong>603 750 739</strong> para confirmar la reserva y el pago del 50%.
+        </p>
+    </div>
 
-<div class="card">
-<h3 data-i18n="home_card2_titulo">Alquiler</h3>
-<p data-i18n="home_card2_desc">Tablas premium por horas. Disfruta del mar a tu ritmo.</p>
-<a class="btn" href="alquiler.html" data-i18n="home_card2_boton">Ver alquiler</a>
-</div>
+    <p style="margin-top:30px;" data-i18n="reservar_llamada_accion">
+        Puedes reservar directamente escribiéndonos por WhatsApp o, si lo prefieres, desde el botón de abajo.
+    </p>
 
-<div class="card">
-<h3 data-i18n="home_card3_titulo">Campamentos</h3>
-<p data-i18n="home_card3_desc">Actividades para jóvenes de lunes a viernes.</p>
-<a class="btn" href="campamentos.html" data-i18n="home_card3_boton">Ver campamentos</a>
-</div>
-
-<div class="card">
-<h3 data-i18n="home_card4_titulo">Grupos</h3>
-<p data-i18n="home_card4_desc">Colegios, empresas, despedidas y familias.</p>
-<a class="btn" href="grupos.html" data-i18n="home_card4_boton">Ver actividades</a>
-</div>
-
-</div>
-
+    <div style="text-align:center;margin-top:10px;">
+        <a class="btn primary" href="https://wa.me/34603750739" target="_blank" data-i18n="reservar_boton_whatsapp">
+            Reservar por WhatsApp
+        </a>
+        <a class="btn secondary" href="index.html#actividades" data-i18n="reservar_boton_ver_actividades">
+            Ver actividades
+        </a>
+    </div>
 </section>
+
+<footer class="footer" data-i18n="footer_text">
+DR Paddle Surf © Torremolinos, Málaga
+</footer>
+
+<!-- BOTÓN WHATSAPP -->
+<a class="whatsapp" href="https://wa.me/34603750739" target="_blank">
+    <img src="whatsapp.png" alt="WhatsApp">
+</a>
 
 <!-- SCRIPT MENÚ PRO -->
 <script>
@@ -430,12 +451,8 @@ document.getElementById("language-selector").value = savedLang;
 loadLanguage(savedLang);
 </script>
 
-<!-- BOTÓN WHATSAPP -->
-<a class="whatsapp" href="https://wa.me/34603750739" target="_blank">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
-</a>
-
 </body>
 </html>
+
 
 
