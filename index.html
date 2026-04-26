@@ -37,6 +37,25 @@ overflow-x:hidden;
     height: 55px;
 }
 
+/* MENÚ ESCRITORIO */
+.nav-links-desktop {
+    display: flex;
+    gap: 25px;
+    align-items: center;
+}
+
+.nav-links-desktop a {
+    font-weight: 700;
+    text-decoration: none;
+    color: #0a1a2a;
+    font-size: 18px;
+    transition: 0.2s;
+}
+
+.nav-links-desktop a:hover {
+    color: #009dff;
+}
+
 /* HAMBURGUESA PRO */
 .nav-toggle {
     width: 32px;
@@ -133,6 +152,10 @@ overflow-x:hidden;
         display: flex;
     }
 
+    .nav-links-desktop {
+        display: none;
+    }
+
     .nav-lang-desktop {
         display: none;
     }
@@ -183,6 +206,7 @@ font-size:clamp(18px,3vw,26px);
 margin-bottom:25px;
 }
 
+/* BOTONES */
 .btn{
 padding:15px 28px;
 border-radius:40px;
@@ -252,24 +276,29 @@ margin-top:40px;
 }
 
 /* WHATSAPP */
-.whatsapp{
-position:fixed;
-right:18px;
-bottom:18px;
-background:#25D366;
-padding:15px;
-border-radius:50%;
-font-size:22px;
-z-index:999;
-color:white;
-text-decoration:none;
+.whatsapp {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    z-index: 99999;
+}
+
+.whatsapp img {
+    width: 70px;
+    height: 70px;
+    filter: drop-shadow(0 4px 10px rgba(0,0,0,0.3));
+    transition: 0.2s;
+}
+
+.whatsapp img:hover {
+    transform: scale(1.1);
 }
 </style>
 </head>
 
 <body>
 
-<!-- NAV PRO -->
+<!-- NAV COMPLETO -->
 <nav class="nav">
     <a href="index.html" class="nav-logo">
         <img src="logotipo.png" alt="DR Paddle Surf">
@@ -432,7 +461,10 @@ referrerpolicy="no-referrer-when-downgrade">
 DR Paddle Surf © Torremolinos, Málaga
 </footer>
 
-<a class="whatsapp" href="https://wa.me/34603750739">💬</a>
+<!-- BOTÓN WHATSAPP -->
+<a class="whatsapp" href="https://wa.me/34603750739" target="_blank">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+</a>
 
 <!-- SCRIPT MENÚ PRO + IDIOMAS -->
 <script>
@@ -457,11 +489,7 @@ function closeMenu() {
 
 navToggle.addEventListener("click", () => {
     const isOpen = navMenu.style.right === "0px";
-    if (isOpen) {
-        closeMenu();
-    } else {
-        openMenu();
-    }
+    isOpen ? closeMenu() : openMenu();
 });
 
 navClose.addEventListener("click", closeMenu);
@@ -507,4 +535,5 @@ loadLanguage(savedLang);
 
 </body>
 </html>
+
 
