@@ -33,8 +33,28 @@ overflow-x:hidden;
     z-index: 999;
 }
 
+/* LOGO */
 .nav-logo img {
     height: 55px;
+}
+
+/* MENÚ ESCRITORIO */
+.nav-links-desktop {
+    display: flex;
+    gap: 25px;
+    align-items: center;
+}
+
+.nav-links-desktop a {
+    font-weight: 700;
+    text-decoration: none;
+    color: #0a1a2a;
+    font-size: 18px;
+    transition: 0.2s;
+}
+
+.nav-links-desktop a:hover {
+    color: #009dff;
 }
 
 /* HAMBURGUESA PRO */
@@ -133,6 +153,10 @@ overflow-x:hidden;
         display: flex;
     }
 
+    .nav-links-desktop {
+        display: none;
+    }
+
     .nav-lang-desktop {
         display: none;
     }
@@ -215,23 +239,54 @@ background:#009dff;
 color:white;
 margin-top:20px;
 }
+
+/* BOTÓN WHATSAPP */
+.whatsapp {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    z-index: 99999;
+}
+
+.whatsapp img {
+    width: 70px;
+    height: 70px;
+    filter: drop-shadow(0 4px 10px rgba(0,0,0,0.3));
+    transition: 0.2s;
+}
+
+.whatsapp img:hover {
+    transform: scale(1.1);
+}
 </style>
 </head>
 
 <body>
 
-<!-- NAV PRO -->
+<!-- NAV COMPLETO -->
 <nav class="nav">
     <a href="index.html" class="nav-logo">
         <img src="logotipo.png" alt="DR Paddle Surf">
     </a>
 
+    <!-- MENÚ ESCRITORIO -->
+    <div class="nav-links-desktop">
+        <a href="index.html" data-i18n="menu_inicio">Inicio</a>
+        <a href="cursos.html" data-i18n="menu_cursos">Cursos</a>
+        <a href="alquiler.html" data-i18n="menu_alquiler">Alquiler</a>
+        <a href="campamentos.html" data-i18n="menu_campamentos">Campamentos</a>
+        <a href="grupos.html" data-i18n="menu_grupos">Grupos</a>
+    </div>
+
+    <!-- HAMBURGUESA -->
     <div class="nav-toggle" id="nav-toggle">
         <span></span><span></span><span></span>
     </div>
 
+    <!-- OVERLAY -->
     <div class="nav-overlay" id="nav-overlay"></div>
 
+    <!-- MENÚ MÓVIL -->
     <div class="nav-menu" id="nav-menu">
         <div class="nav-close" id="nav-close">✕</div>
 
@@ -250,6 +305,7 @@ margin-top:20px;
         </select>
     </div>
 
+    <!-- IDIOMA ESCRITORIO -->
     <select id="language-selector" class="nav-lang-desktop">
         <option value="es">🇪🇸 ES</option>
         <option value="en">🇬🇧 EN</option>
@@ -367,7 +423,13 @@ document.getElementById("language-selector").value = savedLang;
 loadLanguage(savedLang);
 </script>
 
+<!-- BOTÓN WHATSAPP -->
+<a class="whatsapp" href="https://wa.me/34603750739" target="_blank">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+</a>
+
 </body>
 </html>
+
 
 
